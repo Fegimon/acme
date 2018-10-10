@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Interfaces\UserRepositoryInterface;
+use DB;
+use Input;
+use Response;
+use Validator;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+
 
 class RegisterController extends Controller
 {
     public function register(Request $request)
     {
         $data=$request->all();
-         dd($data);
+        // dd($data);
          $userrs = Sentinel::registerAndActivate($data);
-         dd($userrs);
+         //dd($userrs);
          return redirect('/');
     }
 
