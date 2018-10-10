@@ -34,31 +34,52 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form>
-                        <div class="form-group">
-                            <label>User Name</label>
-                            <input type="email" class="form-control" placeholder="User Name">
+                <form action="{{url('register')}}" method="post" id="regForm">
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+                            </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="mobile" id="mobile" class="form-control input-sm" placeholder="Mobile No">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email">
+                            </div>
+                        </div>
+                     </div>
                         <div class="form-group">
+                            <label>Address</label>
+                            <input type="address" class="form-control" placeholder="Address">
+                        </div>
+                        <!-- <div class="form-group">
                             <label>Password</label>
                             <input type="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="checkbox">
+                        </div> -->
+                        <!-- <div class="checkbox">
                             <label>
                                 <input type="checkbox"> Agree the terms and policy
                             </label>
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
-                        <div class="social-login-content">
+                        <!-- <div class="social-login-content">
                             <div class="social-button">
                                 <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Register with facebook</button>
                                 <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Register with twitter</button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="register-link m-t-15 text-center">
                             <p>Already have account ? <a href="#"> Sign in</a></p>
                         </div>

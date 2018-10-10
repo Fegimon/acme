@@ -54,16 +54,16 @@
                             </label> -->
 
                         </div>
-                        <button type="button"  id="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+                        <button type="submit"  id="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                         <!-- <div class="social-login-content">
                             <div class="social-button">
                                 <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
                                 <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button>
                             </div>
                         </div> -->
-                        <!-- <div class="register-link m-t-15 text-center">
-                            <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
-                        </div> -->
+                        <div class="register-link m-t-15 text-center">
+                            <p>Don't have account ? <a href="{{url('register')}}"> Sign Up Here</a></p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -75,8 +75,10 @@
     <script src="{{ asset('public/js/popper.min.js') }}"></script>
     <script src="{{ asset('public/js/plugins.js') }}"></script>
     <script src="{{ asset('public/js/main.js') }}"></script>
-
-<script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+<!-- <script>
 $(document).ready(function () {
   $("#loginForm").validate({
     rules: {
@@ -101,7 +103,7 @@ $(document).ready(function () {
     }
   });
 });
-</script>
+</script> -->
  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"> 
     </script>
 <script>
