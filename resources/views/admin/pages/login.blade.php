@@ -35,16 +35,19 @@
                     </a> -->
                 </div>
                 <div class="login-form">
+                <div class="flash-message">
+                    @include('admin.pages.notification')
+                </div>
                     <form action="{{url('login')}}" method="post" id="loginForm">
                     {{ csrf_field() }}
                         <div class="form-group">
                             <label>User Name</label>
-                            <input type="username" name="mobile" class="form-control" placeholder="Mobile" requried>
+                            <input type="text" name="mobile" class="form-control" placeholder="Mobile" requried>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Password</label>
                             <input type="password" name="password" class="form-control" placeholder="Password" requried>
-                        </div>
+                        </div> -->
                         <div class="checkbox">
                             <!-- <label>
                                 <input type="checkbox"> Remember Me
