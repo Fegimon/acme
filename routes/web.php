@@ -15,11 +15,17 @@
 //     return view('welcome');
 // });
 
+Route::group(['middleware' => ['web']], function () {
+	// here you should put your routes
+    Route::post('login','RegisterController@login');
+    Route::post('register','RegisterController@register');
+});
+
+
 Route::get('/','HomeController@home');
 Route::get('register','HomeController@register');
-Route::post('login','RegisterController@login');
-Route::post('register','RegisterController@register');
 
-Route::get('dashboard','HomeController@dashboard');
 
+Route::get('staff/dashboard','HomeController@staffdashboard');
+Route::get('admin/dashboard','HomeController@admindashboard');
 
