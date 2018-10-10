@@ -65,21 +65,12 @@ class RegisterController extends Controller
                     'address'=>$input['address'],
                 );
                 $userrs = Sentinel::registerAndActivate($userInput);
-                //dd($userrs->role_id);
-                //$user = Sentinel::register($userInput);
-                //assign a user to a role
-                //dd($user);
+                
                $roles = Sentinel::findRoleById($userrs->role_id);
-            //    // $roles = Sentinel::findById(1);
-            //     dd($roles);
-               // $roles->users()->attach($userrs);
-
-               // $userrs = $this->register->adduser($userInput);
+           
                if($userrs->role_id==2)
                {
-                  // $checkstore = DB::table('tbl_store')->where('user_id', $user->id)->first();
-                  // dd('checkstore');
-                  // if($checkstore==""){
+                  
                        $query = DB::table('staff');
 
                        $insert_data=array(
@@ -106,8 +97,7 @@ class RegisterController extends Controller
         $data=$request->all();
         //dd($data);
 
-        // $uname="admin";
-        // $pwd="admin";
+        
         if ($data != null) {
 
                 $input = [
@@ -132,9 +122,7 @@ class RegisterController extends Controller
                 $data = Session::flash('message', 'Invalid Username!');
                return redirect('/')->with(['data', $data], ['message', $data]);
             }
-            // if($uname==$input['username']&&$pwd==$input['password']){
-            //     return redirect('/');
-            // }
+            
          
     }
     public function processLogin(Request $request)
