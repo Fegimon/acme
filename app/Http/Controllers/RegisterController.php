@@ -9,6 +9,7 @@ use Input;
 use Response;
 use Validator;
 use Helper;
+use Session;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
 
@@ -112,7 +113,7 @@ class RegisterController extends Controller
                 $input = [
                     'id' => isset($data['id']) ? $data['id'] : false,
                     'mobile' => isset($data['mobile']) ? $data['mobile'] : '',
-                    'password' => isset($data['password']) ? $data['password'] : '',
+                    //'password' => isset($data['password']) ? $data['password'] : '',
                 ];
             }
             $verifyuser = DB::table('login')->where('mobile', $data['mobile'])->first();
@@ -128,10 +129,8 @@ class RegisterController extends Controller
                
             } else {
                 //print_r("error");die;
-                return Response::json([
-                            'status' => 0,
-                            'message' => 'Please provide valid details'
-                                ], 400);
+                $data = Session::flash('message', 'Invalid Username!');
+               return redirect('/')->with(['data', $data], ['message', $data]);
             }
             // if($uname==$input['username']&&$pwd==$input['password']){
             //     return redirect('/');
