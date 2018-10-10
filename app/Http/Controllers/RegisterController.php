@@ -28,6 +28,7 @@ class RegisterController extends Controller
                 'last_name' => isset($data['last_name']) ? $data['last_name'] : '',
                 'mobile' => isset($data['mobile']) ? $data['mobile'] : '',
                 'email' => isset($data['email']) ? $data['email'] : '',
+                'password' => isset($data['password']) ? $data['password'] : '',
                 'address' => isset($data['address']) ? $data['address'] : '',
             ];
 
@@ -50,10 +51,7 @@ class RegisterController extends Controller
             } else {
                 //   it is used for slug field         
                 // $slug = str_slug($input['profile_image'], '-');
-               $mobile=$data['mobile'];
-               $onetimepass = substr(number_format(time() * rand(), 0, '', ''), 0, 4);
-               $message = 'Your one time password for Login account is ' . $onetimepass;
-               $output=Helper::sendSMS($mobile, $message);
+              
                 $userInput = array(
                     'id' => $input['id'],
                     'role_id' => $input['role_id'],
@@ -61,8 +59,8 @@ class RegisterController extends Controller
                     'last_name' => $input['last_name'],
                     'email' => $input['email'],
                     'mobile' => $input['mobile'],
-                    'password' =>$onetimepass,
-                    'otp' => $onetimepass,
+                    'password' =>$input['password'],
+                    //'otp' => $onetimepass,
                     'address'=>$input['address'],
                 );
                 $userrs = Sentinel::registerAndActivate($userInput);
