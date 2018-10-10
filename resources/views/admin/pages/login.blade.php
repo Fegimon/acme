@@ -104,7 +104,7 @@ $(document).ready(function () {
   });
 });
 </script> -->
- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"> 
+ <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"> 
     </script>
 <script>
 
@@ -132,6 +132,6 @@ $(document).on('click', '#submit', function () {
      });
    });
 
-</script>
+</script> -->
 </body>
 </html>

@@ -95,32 +95,32 @@
     <script src="{{ asset('public/js/plugins.js') }}"></script>
     <script src="{{ asset('public/js/main.js') }}"></script>
 
-<script>
-$(document).ready(function () {
-  $("#loginForm").validate({
-    rules: {
-      username: {
-        required: true
-      },
-      password: {
-        required: true
-      }
-    },
-    messages: {
-      username: {
-        required: "specify username"
-      },
-      password: {
-        required: "specify password"
-      }
-    },
-    submitHandler: function (form) { // for demo
-      alert('valid form');
-      return false;
-    }
-  });
-});
-</script>
+// <script>
+// $(document).ready(function () {
+//   $("#loginForm").validate({
+//     rules: {
+//       username: {
+//         required: true
+//       },
+//       password: {
+//         required: true
+//       }
+//     },
+//     messages: {
+//       username: {
+//         required: "specify username"
+//       },
+//       password: {
+//         required: "specify password"
+//       }
+//     },
+//     submitHandler: function (form) { // for demo
+//       alert('valid form');
+//       return false;
+//     }
+//   });
+// });
+// </script>
 
 </body>
 </html>
