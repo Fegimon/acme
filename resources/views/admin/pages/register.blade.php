@@ -68,10 +68,12 @@
                                 <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="password">
+                        </div>
                       </div>
                         <div class="form-group">
-                            <label>Address</label>
-                            <input type="address" class="form-control" placeholder="Address">
+                            <input type="address" name="address" class="form-control" placeholder="Address">
                         </div>
                         <!-- <div class="form-group">
                             <label>Password</label>
