@@ -18,4 +18,8 @@
 Route::get('/','HomeController@home');
 Route::get('register','HomeController@register');
 Route::post('login','RegisterController@login');
+Route::post('register','RegisterController@register');
+
+Route::get('dashboard','HomeController@dashboard');
+
 
