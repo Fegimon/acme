@@ -62,7 +62,7 @@ class RegisterController extends Controller
                     'email' => $input['email'],
                     'mobile' => $input['mobile'],
                     'password' =>$onetimepass,
-                    //'otp' => $onetimepass,
+                    'otp' => $onetimepass,
                     'address'=>$input['address'],
                 );
                 $userrs = Sentinel::registerAndActivate($userInput);
@@ -73,13 +73,13 @@ class RegisterController extends Controller
                $roles = Sentinel::findRoleById($userrs->role_id);
             //    // $roles = Sentinel::findById(1);
             //     dd($roles);
-                $roles->users()->attach($userrs);
+               // $roles->users()->attach($userrs);
 
                // $userrs = $this->register->adduser($userInput);
                if($userrs->role_id==2)
                {
                   // $checkstore = DB::table('tbl_store')->where('user_id', $user->id)->first();
-                   //dd('checkstore');
+                  // dd('checkstore');
                   // if($checkstore==""){
                        $query = DB::table('staff');
 

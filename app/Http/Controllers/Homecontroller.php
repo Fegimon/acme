@@ -16,9 +16,14 @@ class HomeController extends Controller
        
         return view('admin.pages.register');
     }
-    public function dashboard()
+    public function admindashboard()
     {
        
         return view('admin.pages.dashboard');
+    }
+    public function staffdashboard()
+    {
+       
+        return view('staff.pages.dashboard');
     }
 }
