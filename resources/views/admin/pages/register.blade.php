@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>Register</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -48,6 +48,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <select name="role_id" class="form-control">
+                            <option value="volvo">Select Role</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Staff</option>
+                            <option value="3">Student</option>
+                        </select>
+                        </div>
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
@@ -59,7 +67,7 @@
                                 <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email">
                             </div>
                         </div>
-                     </div>
+                      </div>
                         <div class="form-group">
                             <label>Address</label>
                             <input type="address" class="form-control" placeholder="Address">
