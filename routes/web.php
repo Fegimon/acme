@@ -35,5 +35,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/login', 'Auth\AdminController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\AdminController@login')->name('login.submit');
 Route::get('staff/dashboard','HomeController@staffdashboard');
-Route::get('admin/dashboard','HomeController@admindashboard');
+
+
+Route::group(['prefix' => 'admin'], function(){
+Route::get('dashboard','HomeController@admindashboard');
+Route::get('staffdetails','HomeController@staffdetails');
+Route::get('studentdetails','HomeController@studentdetails');
+Route::get('createstaff','HomeController@createstaff');
+Route::get('createstudent','HomeController@createstudent');
+
+
+});
+
 
