@@ -26,6 +26,14 @@ Route::get('/','HomeController@home');
 Route::get('register','HomeController@register');
 
 
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', 'Auth\AdminController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\AdminController@login')->name('login.submit');
 Route::get('staff/dashboard','HomeController@staffdashboard');
 Route::get('admin/dashboard','HomeController@admindashboard');
 
