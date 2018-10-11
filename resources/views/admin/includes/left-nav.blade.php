@@ -18,8 +18,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Admission Details</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{url('admin/admission')}}">Staff</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Students</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/staffdetails')}}">Staff</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/studentdetails')}}">Students</a></li>
                         </ul>
                     </li>
                     
