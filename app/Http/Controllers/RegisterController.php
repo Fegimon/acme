@@ -95,8 +95,9 @@ class RegisterController extends Controller
     public function login(Request $request)
     {
         $data=$request->all();
-        //dd($data);
-
+       // dd($data);
+        // $input =Sentinel::authenticate($request->all());
+        // dd($input);
         
         if ($data != null) {
 
@@ -108,36 +109,43 @@ class RegisterController extends Controller
             }
             $verifyuser = DB::table('login')->where('mobile', $data['mobile'])->first();
              //dd($verifyuser );
-            if (!empty($verifyuser)){
-                if($verifyuser->role_id==2){
-                    return redirect('staff/dashboard');
-                }
-                if($verifyuser->role_id==1){
-                    return redirect('admin/dashboard');
-                }
+             if (!empty($verifyuser)) {
+                // if($verifyuser->role_id==2){
+                //     return redirect('staff/dashboard');
+                // }
+                // if($verifyuser->role_id==1){
+                //     return redirect('admin/dashboard');
+                // }
+                return Response::json([
+                    'status' => 1,
+                    'role'   => $verifyuser->role_id,
+                ], 200);
                 
                
             } else {
                 //print_r("error");die;
-                $data = Session::flash('message', 'Invalid Username!');
-               return redirect('/')->with(['data', $data], ['message', $data]);
+            //     $data = Session::flash('message', 'Invalid Username!');
+            //    return redirect('/')->with(['data', $data], ['message', $data]);
+            $response = ['success' => false, 'error' => ['Incorrect credentials']];
+            $httpStatus = 401;
+            return response()->json($response, $httpStatus);
             }
             
          
     }
     public function processLogin(Request $request)
   {
-      //$input = Input::all();
+      $input = Input::all();
       //dd($input);
-      $input =Sentinel::authenticate($request->all());
-      dd($input);
+     // $input =Sentinel::authenticate($request->all());
+     // dd($input);
       $rules = [
           'mobile' => 'required',
-          'password' => 'required',
+          //'password' => 'required',
       ];
       $validator = Validator::make($input, $rules);
       if ($validator->fails()) {
-          dd('valid');
+         // dd('valid');
 //            return Redirect::back()
 //                ->withInput()
 //                ->withErrors($validator);
@@ -148,7 +156,7 @@ class RegisterController extends Controller
           //dd('login');
           $credentials = [
               'mobile' => $request->input('mobile'),
-              'password' => $request->input('password'),
+              //'password' => $request->input('password'),
           ];
           try {
            
