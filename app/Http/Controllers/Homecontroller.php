@@ -40,4 +40,9 @@ class HomeController extends Controller
        
         return view('admin.pages.dashboard');
     }
+    public function admission()
+    {
+       
+        return view('admin.pages.admission');
+    }
 }
