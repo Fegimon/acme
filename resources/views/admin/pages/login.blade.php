@@ -38,6 +38,8 @@
                 <div class="flash-message">
                     @include('admin.pages.notification')
                 </div>
+                <div id="validation-errors" class="alert alert-error" style="display: none;color:blue;">
+						</div>
                     <form action="{{url('login')}}" method="post" id="loginForm">
                     {{ csrf_field() }}
                         <div class="form-group">
@@ -57,7 +59,7 @@
                             </label> -->
 
                         </div>
-                        <button type="submit"  id="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+                        <button type="button"  id="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                         <!-- <div class="social-login-content">
                             <div class="social-button">
                                 <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
@@ -80,8 +82,7 @@
     <script src="{{ asset('public/js/main.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-<!-- <script>
+<script>
 $(document).ready(function () {
   $("#loginForm").validate({
     rules: {
@@ -106,8 +107,8 @@ $(document).ready(function () {
     }
   });
 });
-</script> -->
- <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"> 
+</script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"> 
     </script>
 <script>
 
@@ -121,20 +122,32 @@ $(document).on('click', '#submit', function () {
            data:data,
            dataType: "json",
            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-           success:function(response){
-               // console.log(response);
-               if(response.status='1')
+            success: function(response){
+                    //alert( "Data Saved: " + response.role );
+                    if(response.status='1')
                
-               {
-                   console.log(response.data);
-                  // role=response.data.role_id;
-                  window.location.href = "{{ url('/') }}";
+                  {
+                      console.log(response.role);
+                     if(response.role==2)
+               		{
+               		 //$('#myModal2').modal('hide');
+                        window.location.href = "{{ url('staff/dashboard') }}";
+               		}
+               		if(response.role==1)
+               		{
+               		 //$('#myModal2').modal('hide');
+                        window.location.href = "{{ url('admin/dashboard') }}";
+               		}
+            }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Invalid Username");
 
-             }
-        }
+            }
+           
      });
    });
 
-</script> -->
+</script>
 </body>
 </html>
