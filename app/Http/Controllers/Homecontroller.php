@@ -52,7 +52,8 @@ class HomeController extends Controller
     }
     public function createstaff()
     {
-       
+       // $staffrs = DB::table('staff')->get();
+        //dd($staffrs);
         return view('admin.pages.createstaff');
     }
     public function createstudent()
