@@ -40,9 +40,24 @@ class HomeController extends Controller
        
         return view('admin.pages.dashboard');
     }
-    public function admission()
+    public function staffdetails()
     {
        
-        return view('admin.pages.admission');
+        return view('admin.pages.staffdetails');
+    }
+    public function studentdetails()
+    {
+       
+        return view('admin.pages.studentdetails');
+    }
+    public function createstaff()
+    {
+       
+        return view('admin.pages.createstaff');
+    }
+    public function createstudent()
+    {
+       
+        return view('admin.pages.createstudent');
     }
 }
