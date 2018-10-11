@@ -82,7 +82,7 @@
     <script src="{{ asset('public/js/main.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-<script>
+<!-- <script>
 $(document).ready(function () {
   $("#loginForm").validate({
     rules: {
@@ -107,7 +107,7 @@ $(document).ready(function () {
     }
   });
 });
-</script>
+</script> -->
  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"> 
     </script>
 <script>
