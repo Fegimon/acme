@@ -2,7 +2,7 @@
  <html class="no-js" lang=""> 
 <head>
    
-@include('admin.includes.head')
+@include('staff.includes.head')
 
 </head>
 <body>
@@ -10,7 +10,7 @@
 
         <!-- Left Panel -->
 
-      @include('admin.includes.left-nav')
+      @include('staff.includes.left-nav')
 
     <!-- Left Panel -->
 
@@ -19,7 +19,7 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        @include('admin.includes.header')
+        @include('staff.includes.header')
         <!-- Header-->
 
        

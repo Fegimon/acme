@@ -17,6 +17,8 @@
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="{{ asset('public/scss/style.css') }}">
     <link href="{{ asset('public/css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('public/css/lib/datatable/dataTables.bootstrap.min.css') }}">
+
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -36,6 +38,18 @@
     <script src="{{ asset('public/js/lib/vector-map/jquery.vmap.min.js') }}"></script>
     <script src="{{ asset('public/js/lib/vector-map/jquery.vmap.sampledata.js') }}"></script>
     <script src="{{ asset('public/js/lib/vector-map/country/jquery.vmap.world.js') }}"></script>
+
+    <script src="{{ asset('public/js/lib/data-table/datatables.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/buttons.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/jszip.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('public/js/lib/data-table/datatables-init.js') }}"></script>
     <script>
         ( function ( $ ) {
             "use strict";
