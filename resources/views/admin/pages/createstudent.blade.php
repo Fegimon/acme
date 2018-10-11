@@ -2,106 +2,15 @@
 @section('content')
 <div class="container">
 <div id="accordion">
-    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center">
+                <h1 class="text-info">ACME LEARNING</h1>
+            </div>
+        </div>
+    </div>
 
-	<!-- <div class="jumbotron">
-
-
-<div class="container">
-      <h2 class="text-success"><b>Addmission Detail</b></h2>
-</div>
-<div class="form-group">
-                        <select name="role_id" class="form-control">
-                            <option value="volvo">Select Role</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Staff</option>
-                            <option value="3">Student</option>
-                        </select>
-                        </div>
-
-              <div class="row">
-                  <div class="col-md-3 col-lg-4">
-                      <div class="form-group">
-                          <label class="control-label">Admission Number</label>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-                  
-                  
-                     <div class="col-md-3 col-lg-4">
-                      <div class="form-group">
-                          <label class="control-label">Admission Date</label>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-                  
-                  
-
-                  <div class="col-md-4 col-lg-4">
-                      <div class="form-group">
-                          <label class="control-label">Date Of Joining</label>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-
-                 
-              </div>
-
-              
-
-              <div class="row">
-                  <div class="col-md-3 col-lg-4">
-                      <div class="form-group">
-                          <label class="control-label">School/Organization Address</label>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-                  <div class="col-md-5 col-lg-3">
-                      <div class="form-group">
-                          <label class="control-label">City</label>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-                  <div class="col-md-4 col-lg-3">
-                      <div class="form-group">
-                          <label class="control-label">State</label>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-                  <div class="col-md-4 col-lg-2">
-                      <div class="form-group">
-                          <label class="control-label">Zip Code</label>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row">
-                  <div class="col-md-4 col-lg-5">
-                      <div class="form-group">
-                          <label class="control-label">Contact Information:(Phone Number)</label>
-                          <input type="text" class="phone form-control" />
-                      </div>
-                  </div>
-                  <div class="col-md-4 col-lg-4">
-                      <label class="control-label">Email</label>
-                      <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                          <input type="text" class="form-control" />
-                      </div>
-                  </div>
-                  <div class="col-md-4 col-lg-3">
-                      <div class="form-group">
-                          <label class="control-label">Image</label>
-                          <input type="file" class="" />
-                      </div>
-                  </div>
-
-                 
-              </div>
-
-              </div> -->
-              
+	
 	
 <div class="jumbotron">
 
@@ -178,13 +87,9 @@
                 <div class="row">
 				  <div class="col-md-3 col-lg-4">
                         <div class="form-group">
-                        <label class="control-label">Gender</label>
-                        <select name="" class="form-control">
-                            <option value="volvo">select</option>
-                            <option value="male">male</option>
-                            <option value="female">female</option>
-                          
-                        </select>
+                            <label for="gender">Gender</label><br>
+                            <input type="radio"  name=" gender" value="male"/>Male &nbsp &nbsp
+							<input type="radio"  name=" gender" value="female"/>Female
                         </div>
                     </div>
 					
@@ -198,17 +103,85 @@
                     </div> 
 					<div class="col-md-3 col-lg-3">
                         <div class="form-group">
-                            <label class="control-label">Qualification</label>
+                            <label class="control-label">Blood Group</label>
                             <input type="text" class="form-control" name=" bloodgroup" required  />
                         </div>
                     </div>
 					<div class="col-md-4 col-lg-2">
 					           <div class="form-group">
-					                 <label>Experience</label>	<br>				   
-							           <input type ="text" name="hi" value="">
+					                 <label> Health Issues</label>	<br>				   
+							           <input type ="radio" name="hi" value="yes">YES
+								      <input type ="radio" name="hi" value="no">NO
 								</div>
 						</div>
+					<div class="col-md-3 col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Religion</label><br>
+                            <input type ="radio" name="reli" value="hin" >Hindu &nbsp &nbsp
+							<input type ="radio" name="reli" value="mus" >Muslem &nbsp &nbsp
+							<input type ="radio" name="reli" value="chri" >Christian &nbsp &nbsp
+							
+                        </div>
+                    </div>
+					<div class="col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label class="control-label">Nationality</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+					<div class="col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label class="control-label">GRADE</label>
+                            
+						<fieldset>
+							<select name="standard">
+							  <option value="">-- select one --</option>
+							  <option value="ukg">UKG</option>
+							  <option value="Lkg">LKG</option>
+							  <option value="">1st std</option>
+							  <option value="">2nd std</option>
+							  <option value="">3rd std</option>
+							  <option value="">4th std</option>
+							  <option value="">5th std</option>
+							  <option value="">6th std</option>
+							  <option value="">7th std</option>
+							  <option value="">8th std</option>
+							  <option value="">9th std</option>
+                              <option value="">10th std</option>
+                              <option value="">11th std</option>
+                              <option value="">12th std</option>
+                            </select>
+                        </fieldset>
+                        </div>
+                    </div>
 					
+					<div class="col-md-4 col-lg-2">
+                        <div class="form-group">
+                            <label class="control-label">Subject Group</label>
+                           <select >
+								<option>M.PC</option>
+								<option>BI.PC</option>
+								<option>CEC</option>
+								<option>HEC</option>
+								
+						    </select>
+                        </div>
+                    </div>
+					<div class="col-md-4 col-lg-12">
+                        <div class="form-group">
+                            <label class="control-label">School Name</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+					
+					       
+					<div class="col-md-3 col-lg-2">
+					           <div class="form-group">
+					                 <label> SecondLanguage</label>	<br>				   
+							           <input type ="radio" name="lng" value="telugu">Telugu &nbsp 
+								      <input type ="radio" name="lng" value="sanskrit">Sanskrit 
+								</div>
+						</div>
 						
 						 
 						 <div class="col-md-8 col-lg-8">
@@ -233,8 +206,105 @@
 				
             </div>`
         </div>
-    </div>	
-				<!-- <div class="jumbotron">
+    </div>
+  <div class="jumbotron">
+
+
+  <div class="container">
+        <h2 class="text-success"><b>Addmission Detail</b></h2>
+</div>
+		
+  
+                <div class="row">
+                    <div class="col-md-3 col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Admission Number</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+					
+					
+                       <div class="col-md-3 col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Admission Date</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+					
+					
+
+                    <div class="col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Date Of Joining</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                   
+                </div>
+
+                
+
+                <div class="row">
+                    <div class="col-md-3 col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">School/Organization Address</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-3">
+                        <div class="form-group">
+                            <label class="control-label">City</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="form-group">
+                            <label class="control-label">State</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="form-group">
+                            <label class="control-label">Zip Code</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-lg-5">
+                        <div class="form-group">
+                            <label class="control-label">Contact Information:(Phone Number)</label>
+                            <input type="text" class="phone form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3">
+                        <div class="form-group">
+                            <label class="control-label">Fax Number</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4">
+                        <label class="control-label">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="jumbotron">
 
   <div class="container">
         <h2 class="text-success"><b>Personel Details</b></h2>
@@ -340,7 +410,7 @@
                         </div>
                     </div>
                 </div>
- </div> -->
+ </div>
 
 
 
@@ -353,5 +423,4 @@
     </div>
 </div>
 </div>
-
 @stop
