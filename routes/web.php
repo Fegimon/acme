@@ -43,6 +43,8 @@ Route::get('staffdetails','HomeController@staffdetails');
 Route::get('studentdetails','HomeController@studentdetails');
 Route::get('createstaff','HomeController@createstaff');
 Route::get('createstudent','HomeController@createstudent');
+Route::post('addstaff','AdmissionController@addstaff');
+
 
 
 });
