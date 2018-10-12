@@ -16,10 +16,17 @@
                     </li>
                    
                     <li class="menu-item-has-children dropdown">
-                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Admission Details</a>
+                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Staff</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{url('admin/staffdetails')}}">Staff</a></li>
-                            <li><i class="fa fa-table"></i><a href="{{url('admin/studentdetails')}}">Students</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/createstaff')}}">Add Staff</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/staffdetails')}}">Staff List</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Student</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/createstudent')}}">Add Student</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/studentdetails')}}">Students List</a></li>
                         </ul>
                     </li>
                     

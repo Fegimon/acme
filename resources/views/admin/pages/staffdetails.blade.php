@@ -7,10 +7,11 @@
             <div class="card">
                <div class="card-header">
                   <strong class="card-title">Staff Admission Details</strong>
-                  <a href="{{url('admin/createstaff')}}"><i class="fa fa-user-plus" aria-hidden="true" style="margin-left:700px;color:blue">Add Staff</i></a>
+                  <!-- <a href="{{url('admin/createstaff')}}"><i class="fa fa-user-plus" aria-hidden="true" style="margin-left:700px;color:blue">Add Staff</i></a> -->
 
                </div>
                <div class="card-body">
+               <div class="table-responsive">
                   <table id="admission" class="table table-striped table-bordered">
                      <thead>
                         <tr>
@@ -41,6 +42,7 @@
                         </tr>
                      </tbody>
                   </table>
+                  </div>
                </div>
             </div>
          </div>
@@ -49,6 +51,8 @@
    <!-- .animated -->
 </div>
 <!-- .content -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
 <script type="text/javascript">
    $(document).ready(function() {
      $('#admission').DataTable();

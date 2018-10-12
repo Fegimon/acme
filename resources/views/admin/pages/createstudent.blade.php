@@ -44,12 +44,12 @@
                   </div>
                </div>
                <div class="row">
-                  <!-- <div class="col-md-4 col-lg-4">
+                  <div class="col-md-4 col-lg-4">
                      <div class="form-group">
                         <label class="control-label">Email Address</label>
                         <input type="text"  name="email "class="form-control"  title="Please enter valid email id "/>
                      </div>
-                  </div> -->
+                  </div>
                   <div class="col-md-2 col-lg-3">
                      <div class="form-group">
                         <label for="gender">Gender</label><br>
