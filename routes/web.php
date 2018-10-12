@@ -46,6 +46,8 @@ Route::get('createstudent','HomeController@createstudent');
 Route::post('addstaff','AdmissionController@addstaff');
 Route::post('addstudent','AdmissionController@addstudent');
 Route::get('editstudent/{id}','HomeController@editstudent');
+Route::get('deletestudent/{id}','HomeController@deletestudent');
+
 
 
 
