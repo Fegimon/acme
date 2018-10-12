@@ -23,4 +23,19 @@ class Admission extends Model
             return $result;
         }
     }
+    public function saveStudent($input) {        
+        $query = DB::table('acme-student');
+        if ($input['id']) {
+    
+            $input['updated_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->where([['id', $input['id']]])->update($input);
+            return $input['id'];
+            
+        } else {
+        
+            $input['created_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->insertGetId($input);
+            return $result;
+        }
+    }
 }
