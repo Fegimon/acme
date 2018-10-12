@@ -88,4 +88,11 @@ class HomeController extends Controller
             return redirect('admin/studentdetails');
         }
     }
+    public function viewstudent($id)
+    {
+        //dd($id);
+        $studentrs = DB::table('acme-student')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.viewstudent')->with('studentrs',$studentrs);
+    }
 }
