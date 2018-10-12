@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -47,8 +48,9 @@ class HomeController extends Controller
     }
     public function studentdetails()
     {
-       
-        return view('admin.pages.studentdetails');
+        $studentrs = DB::table('acme-student')->get();
+        //dd($staffrs);
+        return view('admin.pages.studentdetails')->with('studentrs',$studentrs);
     }
     public function createstaff()
     {
@@ -60,5 +62,11 @@ class HomeController extends Controller
     {
        
         return view('admin.pages.createstudent');
+    }
+    public function editstudent($id)
+    {
+        $studentrs = DB::table('acme-student')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.editstudent')->with('studentrs',$studentrs);
     }
 }
