@@ -10,7 +10,7 @@
          </div>
       </div>
       <div class="jumbotron">
-      <form action="{{url('admin/addstudent')}}" method="post" id="student" enctype="multipart/form-data">
+      <form action="{{url('admin/addstudent')}}" method="post" id="addstudent" enctype="multipart/form-data">
                     {{ csrf_field() }}
          <div class="container">
             <h2 class="text-success"><b>Student Details</b></h2>
@@ -338,11 +338,44 @@
    <div class="row">
       <div class="col-lg-12">
          <div class="pull-right">
-            <button type="submit" class="btn btn-success btn-lg" id="btnSubmit"><i class="fa fa-save"></i> Save</button>
+            <button type="button" class="btn btn-success btn-lg" id="btnSubmit"><i class="fa fa-save"></i> Save</button>
             <a class="btn btn-warning btn-lg" href="#" id="btnToTop"><i class="fa fa-arrow-up"></i> Top</a>
          </div>
       </div>
    </div>
    </form>
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+<script>
+
+$(document).on('click', '#btnSubmit', function () {
+    alert('click');
+       //var data  = $('#addstudent').serializeArray();
+       var data = new FormData($('#addstudent')[0]);
+       var url = "{{url('admin/addstudent')}}";
+     $.ajax({
+           type:'POST',
+           url:url,
+           data:data,
+           dataType: "json",
+           processData: false,
+           contentType: false,
+           async:true,
+           headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+           success:function(response){
+               // console.log(response);
+               if(response.status='1')
+               
+               {
+                   console.log(response);
+                   window.location.href = "{{ url('admin/studentdetails') }}";
+                 
+               }
+        }
+     });
+   });
+
+</script>
+
 @stop
