@@ -69,8 +69,8 @@
    <!-- .animated -->
 </div>
 <!-- .content -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
    $(document).ready(function() {
      $('#admission').DataTable();
@@ -79,7 +79,7 @@
 
 <script>
  $(document).on('click','.delete',function(){
-   //alert('alert');
+   alert('alert');
     var $this = $(this);
     var id = $this.attr('data-id');
     var url = "{{ url('admin/deletestudent') }}"+"/"+id;
