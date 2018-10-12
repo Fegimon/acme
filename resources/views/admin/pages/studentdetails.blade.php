@@ -71,4 +71,15 @@
      $('#admission').DataTable();
    } );
 </script>
+
+<script>
+ $(document).on('click','.delete',function(){
+   //alert('alert');
+    var $this = $(this);
+    var id = $this.attr('data-id');
+    var url = "{{ url('admin/deletestudent') }}"+"/"+id;
+    //alert(url);
+    window.location.href = url;
+  });
+</script>
 @stop
