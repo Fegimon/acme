@@ -48,7 +48,7 @@ class HomeController extends Controller
     }
     public function studentdetails()
     {
-        $studentrs = DB::table('acme-student')->get();
+        $studentrs = DB::table('acme-student')->where('status',1)->get();
         //dd($staffrs);
         return view('admin.pages.studentdetails')->with('studentrs',$studentrs);
     }
@@ -68,5 +68,24 @@ class HomeController extends Controller
         $studentrs = DB::table('acme-student')->where('id',$id)->first();
         //dd($studentrs);
         return view('admin.pages.editstudent')->with('studentrs',$studentrs);
+    }
+
+    public function deletestudent($id)
+    {
+        //dd($id);
+        $student = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatestudent=DB::table('acme-student')->where('id', $id)->update($student);
+
+        if($updatestudent){
+            
+            return redirect('admin/studentdetails');
+        }
+        else{
+            return redirect('admin/studentdetails');
+        }
     }
 }
