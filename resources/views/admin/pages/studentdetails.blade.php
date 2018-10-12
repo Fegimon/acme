@@ -13,31 +13,49 @@
                   <table id="admission" class="table table-striped table-bordered">
                      <thead>
                         <tr>
+                           <th>S.No</th>
                            <th>Name</th>
-                           <th>Position</th>
-                           <th>Office</th>
-                           <th>Salary</th>
+                           <th>Student Photo</th>
+                           <th>DOB</th>
+                           <th>Gender</th>
+                           <th>Age</th>
+                           <th>Blood Group</th>
+                           <th>Admission No</th>
+                           <th>Admission Date</th>
+                           <th>DOJ</th>
+                           <th>School Name</th>
+                           <th>School City</th>
+                           <th>School Mobile</th>
+                           <th>School Email</th>
+                           <th>Edit </th>
+                           <th>Delete</th>
+
                         </tr>
                      </thead>
                      <tbody>
+                     @foreach ($studentrs as $val)
+                     <?php
+                           $i=0;
+                    ?>
                         <tr>
-                           <td>Tiger Nixon</td>
-                           <td>System Architect</td>
-                           <td>Edinburgh</td>
-                           <td>$320,800</td>
+                           <td>{{++$i}}</td>
+                           <td>{{ $val->firstname}}</td>
+                           <td><img src="{{ asset('public/upload/student/'.$val->student_image) }}" width="40px"></td>
+                           <td>{{ $val->dob}}</td>
+                           <td>{{ $val->gender}}</td>
+                           <td>{{ $val->age}}</td>
+                           <td>{{ $val->bloodgroup}}</td>
+                           <td>{{ $val->admission_no}}</td>
+                           <td>{{ $val->admission_date}}</td>
+                           <td>{{ $val->doj}}</td>
+                           <td>{{ $val->school_name}}</td>
+                           <td>{{ $val->school_city}}</td>
+                           <td>{{ $val->school_mobile}}</td>
+                           <td>{{ $val->school_email}}</td>
+                           <td><a href="{{ url('admin/editstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
+                           <td><button type="button" class="btn btn-gradient-forest waves-effect waves-light m-1 delete" data-id="{{ $val->id }}" > <i class="fa fa fa-trash-o"></i> <span>Delete</span> </button></td>
                         </tr>
-                        <tr>
-                           <td>Garrett Winters</td>
-                           <td>Accountant</td>
-                           <td>Tokyo</td>
-                           <td>$170,750</td>
-                        </tr>
-                        <tr>
-                           <td>Ashton Cox</td>
-                           <td>Junior Technical Author</td>
-                           <td>San Francisco</td>
-                           <td>$86,000</td>
-                        </tr>
+                        @endforeach
                      </tbody>
                   </table>
                </div>

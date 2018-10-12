@@ -15,26 +15,28 @@
          <div class="container">
             <h2 class="text-success"><b>Student Details</b></h2>
          </div>
+         <input type="text" name="id" class="form-control"  value="{{$studentrs->id}}" />
+
          <div id="collapse1" class="collapse show">
             <div class="card-body">
                <div class="row">
                   <div class="col-sm-2 col-lg-4">
                      <div class="form-group">
                         <label class="control-label">First Name</label>
-                        <input type="text" name="firstname" class="form-control" required pattern="[a-zA-Z]{0,30}" title="FirstName should only contain letters" />
+                        <input type="text" name="firstname" class="form-control" required pattern="[a-zA-Z]{0,30}" title="FirstName should only contain letters" value="{{$studentrs->firstname}}" />
                      </div>
                   </div>
                   <div class="col-md-2 col-lg-4">
                      <div class="form-group">
                         <label class="control-label">Last Name</label>
-                        <input type="text" name="lastname" class="form-control" required pattern="[a-zA-Z]{0,30}" title="Lastname should only contain letters"/>
+                        <input type="text" name="lastname" class="form-control" required pattern="[a-zA-Z]{0,30}" title="Lastname should only contain letters" value="{{$studentrs->lastname}}"/>
                      </div>
                   </div>
                   <div class="col-md-2 col-lg-3">
                      <div class="form-group">
                         <label class="control-label">Date Of Birth</label>
                         <div class="input-group date">
-                           <input class="form-control" type="text"  name="dob" required />
+                           <input class="form-control" type="text"  name="dob" required  value="{{$studentrs->dob}}"/>
                            <span class="input-group-append">
                            <button class="btn btn-outline-secondary" type="button">
                            <i class="fa fa-calendar"></i>
@@ -60,13 +62,13 @@
                   <div class="col-md-3 col-lg-3">
                      <div class="form-group">
                         <label class="control-label">Age</label>
-                        <input type="text" class="form-control" name=" age" maxlength="3" pattern="[0-9]{0,3}" title="Age should only contain numbers" />
+                        <input type="text" class="form-control" name=" age" maxlength="3" pattern="[0-9]{0,3}" title="Age should only contain numbers" value="{{$studentrs->age}}" />
                      </div>
                   </div>
                   <div class="col-md-3 col-lg-3">
                      <div class="form-group">
                         <label class="control-label">Blood Group</label>
-                        <input type="text" class="form-control" name=" bloodgroup" required  />
+                        <input type="text" class="form-control" name=" bloodgroup" required value="{{$studentrs->bloodgroup}}" />
                      </div>
                   </div>
                   <div class="col-md-3 col-lg-4">
@@ -181,19 +183,19 @@
          <div class="col-md-3 col-lg-4">
             <div class="form-group">
                <label class="control-label">Admission Number</label>
-               <input type="text" name="admission_no" class="form-control" />
+               <input type="text" name="admission_no" class="form-control" value="{{$studentrs->admission_no}}" />
             </div>
          </div>
          <div class="col-md-3 col-lg-4">
             <div class="form-group">
                <label class="control-label">Admission Date</label>
-               <input type="text" name="admission_date" class="form-control" />
+               <input type="text" name="admission_date" class="form-control" value="{{$studentrs->admission_date}}" />
             </div>
          </div>
          <div class="col-md-4 col-lg-4">
             <div class="form-group">
                <label class="control-label">Date Of Joining</label>
-               <input type="text" name="doj" class="form-control" />
+               <input type="text" name="doj" class="form-control" value="{{$studentrs->doj}}" />
             </div>
          </div>
       </div>
@@ -201,25 +203,25 @@
          <div class="col-md-3 col-lg-4">
             <div class="form-group">
                <label class="control-label">School/Organization Address</label>
-               <input type="text" name="school_name" class="form-control" />
+               <input type="text" name="school_name" class="form-control" value="{{$studentrs->school_name}}" />
             </div>
          </div>
          <div class="col-md-5 col-lg-3">
             <div class="form-group">
                <label class="control-label">City</label>
-               <input type="text" name="school_city"class="form-control" />
+               <input type="text" name="school_city"class="form-control" value="{{$studentrs->school_state}}" />
             </div>
          </div>
          <div class="col-md-4 col-lg-3">
             <div class="form-group">
                <label class="control-label">State</label>
-               <input type="text" name="school_state"class="form-control" />
+               <input type="text" name="school_state"class="form-control" value="{{$studentrs->school_state}}"/>
             </div>
          </div>
          <div class="col-md-4 col-lg-2">
             <div class="form-group">
                <label class="control-label">Zip Code</label>
-               <input type="text" name="school_zip"class="form-control" />
+               <input type="text" name="school_zip"class="form-control"  value="{{$studentrs->school_zip}}"/>
             </div>
          </div>
       </div>
@@ -227,20 +229,20 @@
          <div class="col-md-4 col-lg-5">
             <div class="form-group">
                <label class="control-label">Phone Number</label>
-               <input type="text" name="school_mobile" class="phone form-control" />
+               <input type="text" name="school_mobile" class="phone form-control"value="{{$studentrs->school_mobile}}" />
             </div>
          </div>
          <div class="col-md-4 col-lg-3">
             <div class="form-group">
                <label class="control-label">Fax Number</label>
-               <input type="text" name="school_fax" class="form-control" />
+               <input type="text" name="school_fax" class="form-control" value="{{$studentrs->school_fax}}"/>
             </div>
          </div>
          <div class="col-md-4 col-lg-4">
             <label class="control-label">Email</label>
             <div class="input-group">
                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-               <input type="text" name="school_email" class="form-control" />
+               <input type="text" name="school_email" class="form-control" value="{{$studentrs->school_email}}" />
             </div>
          </div>
       </div>
@@ -253,19 +255,19 @@
          <div class="col-md-3 col-lg-4">
             <div class="form-group">
                <label class="control-label">Father Name</label>
-               <input type="text" name="father_name" class="form-control" />
+               <input type="text" name="father_name" class="form-control"  value="{{$studentrs->father_name}}"/>
             </div>
          </div>
          <div class="col-md-4 col-lg-4">
             <div class="form-group">
                <label class="control-label">Mother Name</label>
-               <input type="text" name="mother_name" class="form-control" />
+               <input type="text" name="mother_name" class="form-control" value="{{$studentrs->mother_name}}" />
             </div>
          </div>
          <div class="col-md-3 col-lg-4">
             <div class="form-group">
                <label class="control-label">Father Occupation</label>
-               <input type="text" name="occupation" class="form-control" />
+               <input type="text" name="occupation" class="form-control" value="{{$studentrs->occupation}}"/>
             </div>
          </div>
       </div>
@@ -273,25 +275,25 @@
          <div class="col-md-2 col-lg-3">
             <div class="form-group">
                <label class="control-label">Father Mobile</label>
-               <input type="text" name="father_mobile" class="form-control" />
+               <input type="text" name="father_mobile" class="form-control" value="{{$studentrs->father_mobile}}"/>
             </div>
          </div>
          <div class="col-md-3 col-lg-3">
             <div class="form-group">
                <label class="control-label">Address</label>
-               <input type="text" name="address" class="form-control" />
+               <input type="text" name="address" class="form-control" value="{{$studentrs->address}}"/>
             </div>
          </div>
          <div class="col-md-5 col-lg-3">
             <div class="form-group">
                <label class="control-label">City</label>
-               <input type="text" name="city" class="form-control" />
+               <input type="text" name="city" class="form-control" value="{{$studentrs->city}}"/>
             </div>
          </div>
          <div class="col-md-4 col-lg-3">
             <div class="form-group">
                <label class="control-label">State</label>
-               <input type="text" name="state" class="form-control" />
+               <input type="text" name="state" class="form-control" value="{{$studentrs->state}}" />
             </div>
          </div>
       </div>
