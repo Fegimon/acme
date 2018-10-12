@@ -116,7 +116,7 @@ class AdmissionController extends Controller
     public function addstudent(Request $request)
     {
         $data=$request->all();
-        // dd($data);
+       //print_r($data);die;
 
         if ($data != null) {
 
@@ -125,7 +125,7 @@ class AdmissionController extends Controller
                 'firstname' => isset($data['firstname']) ? $data['firstname'] : '',
                 'lastname' => isset($data['lastname']) ? $data['lastname'] : '',
                 'dob' => isset($data['dob']) ? $data['dob'] : '',
-               // 'email' => isset($data['email']) ? $data['email'] : '',
+                'email' => isset($data['email']) ? $data['email'] : '',
                 'gender' => isset($data['gender']) ? $data['gender'] : '',
                 'age' => isset($data['age']) ? $data['age'] : '',
                 'bloodgroup' => isset($data['bloodgroup']) ? $data['bloodgroup'] : '',
@@ -191,7 +191,7 @@ class AdmissionController extends Controller
                     'firstname' => $input['firstname'],
                     'lastname' => $input['lastname'],
                     'dob' => $input['dob'],
-                   // 'email' => $input['email'],
+                    'email' => $input['email'],
                     'gender' => $input['gender'],
                     'age' => $input['age'],
                     'bloodgroup'=>$input['bloodgroup'],
@@ -225,7 +225,7 @@ class AdmissionController extends Controller
                     'firstname' => $input['firstname'],
                     'lastname' => $input['lastname'],
                     'dob' => $input['dob'],
-                   // 'email' => $input['email'],
+                    'email' => $input['email'],
                     'gender' => $input['gender'],
                     'age' => $input['age'],
                     'bloodgroup'=>$input['bloodgroup'],
@@ -257,8 +257,11 @@ class AdmissionController extends Controller
                 $studentid = $this->admission->saveStudent($studentInput);
                
                if ($studentid) {
-                   
-                return redirect('admin/studentdetails');
+                return Response::json([
+                    'status' => 1,
+                    'message' => 'Successfully Created'
+                        ], 200);
+                //return redirect('admin/studentdetails');
                 } else {
                     return Response::json([
                                 'status' => 0,
