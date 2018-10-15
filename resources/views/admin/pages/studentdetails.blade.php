@@ -42,17 +42,12 @@
                            <td>{{++$i}}</td>
                            <td>{{ $val->firstname}}</td>
                            <td><img src="{{ asset('public/upload/student/'.$val->student_image) }}" width="40px"></td>
-                           <!-- <td>{{ $val->dob}}</td> -->
-                           <!-- <td>{{ $val->gender}}</td> -->
+                        
                            <td>{{ $val->email}}</td>
                            <td>{{ $val->address}}</td>
                            <td>{{ $val->admission_no}}</td>
                            <td>{{ $val->admission_date}}</td>
-                           <!-- <td>{{ $val->doj}}</td> -->
-                           <!-- <td>{{ $val->school_name}}</td>
-                           <td>{{ $val->school_city}}</td>
-                           <td>{{ $val->school_mobile}}</td>
-                           <td>{{ $val->school_email}}</td> -->
+                        
                            <td><a href="{{ url('admin/viewstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td>
                            <td><a href="{{ url('admin/editstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
                            <td><button type="button" class="btn btn-gradient-forest waves-effect waves-light m-1 delete" data-id="{{ $val->id }}" > <i class="fa fa fa-trash-o"></i> <span>Delete</span> </button></td>
