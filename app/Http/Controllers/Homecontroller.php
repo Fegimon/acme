@@ -49,7 +49,7 @@ class HomeController extends Controller
     public function studentdetails()
     {
         $studentrs = DB::table('acme-student')->where('status',1)->get();
-        //dd($staffrs);
+       // dd($studentrs);
         return view('admin.pages.studentdetails')->with('studentrs',$studentrs);
     }
     public function createstaff()

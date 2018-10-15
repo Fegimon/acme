@@ -116,7 +116,7 @@ class AdmissionController extends Controller
     public function addstudent(Request $request)
     {
         $data=$request->all();
-       //print_r($data);die;
+      // print_r($data);die;
 
         if ($data != null) {
 
@@ -135,12 +135,12 @@ class AdmissionController extends Controller
                 'admission_no' => isset($data['admission_no']) ? $data['admission_no'] : '',
                 'admission_date' => isset($data['admission_date']) ? $data['admission_date'] : '',
                 'doj' => isset($data['doj']) ? $data['doj'] : '',
-                'school_name' => isset($data['school_name']) ? $data['school_name'] : '',
-                'school_city' => isset($data['school_city']) ? $data['school_city'] : '',
-                'school_state' => isset($data['school_state']) ? $data['school_state'] : '',
-                'school_zip' => isset($data['school_zip']) ? $data['school_zip'] : '',
-                'school_mobile' => isset($data['school_mobile']) ? $data['school_mobile'] : '',
-                'school_fax' => isset($data['school_fax']) ? $data['school_fax'] : '',
+               // 'school_name' => isset($data['school_name']) ? $data['school_name'] : '',
+               // 'school_city' => isset($data['school_city']) ? $data['school_city'] : '',
+               // 'school_state' => isset($data['school_state']) ? $data['school_state'] : '',
+               // 'school_zip' => isset($data['school_zip']) ? $data['school_zip'] : '',
+               // 'school_mobile' => isset($data['school_mobile']) ? $data['school_mobile'] : '',
+               // 'school_fax' => isset($data['school_fax']) ? $data['school_fax'] : '',
                 'school_email' => isset($data['school_email']) ? $data['school_email'] : '',
 
                 'father_name' => isset($data['father_name']) ? $data['father_name'] : '',
@@ -152,7 +152,8 @@ class AdmissionController extends Controller
                 'state' => isset($data['state']) ? $data['state'] : '',
                
             ];
-           
+            //print_r($input);die;
+
             if ($request->hasFile('student_image')) {
                 $image = $request->file('student_image')->getClientOriginalExtension();
                 $rand=substr(number_format(time() * rand(), 0, '', ''), 0, 4);
@@ -201,12 +202,12 @@ class AdmissionController extends Controller
                     'admission_no' => $input['admission_no'],
                     'admission_date' => $input['admission_date'],
                     'doj'=>$input['doj'],
-                    'school_name' => $input['school_name'],
-                    'school_city'=>$input['school_city'],
-                    'school_state' => $input['school_state'],
-                    'school_zip' => $input['school_zip'],
-                    'school_mobile'=>$input['school_mobile'],
-                    'school_fax' => $input['school_fax'],
+                    // 'school_name' => $input['school_name'],
+                    // 'school_city'=>$input['school_city'],
+                    // 'school_state' => $input['school_state'],
+                    // 'school_zip' => $input['school_zip'],
+                    // 'school_mobile'=>$input['school_mobile'],
+                    // 'school_fax' => $input['school_fax'],
                     'school_email' => $input['school_email'],
 
 
@@ -235,12 +236,12 @@ class AdmissionController extends Controller
                     'admission_no' => $input['admission_no'],
                     'admission_date' => $input['admission_date'],
                     'doj'=>$input['doj'],
-                    'school_name' => $input['school_name'],
-                    'school_city'=>$input['school_city'],
-                    'school_state' => $input['school_state'],
-                    'school_zip' => $input['school_zip'],
-                    'school_mobile'=>$input['school_mobile'],
-                    'school_fax' => $input['school_fax'],
+                    // 'school_name' => $input['school_name'],
+                    // 'school_city'=>$input['school_city'],
+                    // 'school_state' => $input['school_state'],
+                    // 'school_zip' => $input['school_zip'],
+                    // 'school_mobile'=>$input['school_mobile'],
+                    // 'school_fax' => $input['school_fax'],
                     'school_email' => $input['school_email'],
 
 
