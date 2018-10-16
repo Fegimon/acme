@@ -52,7 +52,7 @@ class CourseController extends Controller
                                 ], 400);
             } else { 
                
-                $staffInput = array(
+                $courseInput = array(
                     'id' => $input['id'],
                     'coursecode' => $input['coursecode'],
                     'coursename' => $input['coursename'],
@@ -64,9 +64,9 @@ class CourseController extends Controller
                     'status'=>1,
                    
                 );
-                $staffid = $this->course->saveCourse($staffInput);
+                $courseid = $this->course->saveCourse($courseInput);
                
-               if ($staffid) {
+               if ($courseid) {
                    
                 return redirect('admin/courselist');
                 } else {
