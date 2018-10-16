@@ -6,23 +6,23 @@
                         Add  <strong>Expense</strong>
                       </div>
                       <div class="card-body card-block">
-                      <form action="{{url('admin/addcourse')}}" method="post" id="regForm">
+                      <form action="{{url('admin/addexpense')}}" method="post" id="regForm">
                     {{ csrf_field() }}
                     <div class="row">
          <div class="col-sm-2 col-lg-6">
             <div class="form-group accordion--form__row ">
                <label class="control-label">Category</label>
-               <select name="religion" class="form-control" >
-                  <option value="hindu">STAFF</option>
-                  <option value="muslem">STUDENT</option>
-                  <option value="christian">OTHERS</option>
+               <select name="category" class="form-control" >
+                  <option value="staff">STAFF</option>
+                  <option value="student">STUDENT</option>
+                  <option value="other">OTHERS</option>
                </select>
             </div>
          </div>
          <div class="col-md-2 col-lg-6">
             <div class="form-group accordion--form__row">
                <label class="control-label"> Amount</label>
-               <input type="text" name="coursename" class="form-control accordion--form__text required" required />
+               <input type="text" name="amount" class="form-control accordion--form__text required" required />
             </div>
          </div>
       </div>
@@ -30,13 +30,13 @@
          <div class="col-sm-2 col-lg-6">
             <div class="form-group accordion--form__row ">
                <label class="control-label">From Name</label>
-               <input type="text" name="category" class="form-control accordion--form__text required"   required  />
+               <input type="text" name="name" class="form-control accordion--form__text required"   required  />
             </div>
          </div>
          <div class="col-md-2 col-lg-6">
             <div class="form-group accordion--form__row">
                <label class="control-label">Phone</label>
-               <input type="text" name="sub_category" class="form-control accordion--form__text required" required />
+               <input type="text" name="phone" class="form-control accordion--form__text required" required />
             </div>
          </div>
       </div>
@@ -44,17 +44,17 @@
          <div class="col-sm-2 col-lg-6">
             <div class="form-group accordion--form__row ">
                <label class="control-label">Payment method</label>
-               <select name="religion" class="form-control" >
-                  <option value="hindu">Net banking</option>
-                  <option value="muslem">Debit card</option>
-                  <option value="christian">Bank Transer</option>
+               <select name="payment_method" class="form-control" >
+                  <option value="netbanking">Net banking</option>
+                  <option value="debit">Debit card</option>
+                  <option value="bank_transfer">Bank Transer</option>
                </select>
             </div>
          </div>
          <div class="col-md-2 col-lg-6">
             <div class="form-group accordion--form__row">
                <label class="control-label">Email</label>
-               <input type="text" name="enddate" class="form-control accordion--form__text required" required />
+               <input type="text" name="email" class="form-control accordion--form__text required" required />
             </div>
          </div>
       </div>
@@ -62,7 +62,7 @@
          <div class="col-sm-2 col-lg-12">
             <div class="form-group accordion--form__row ">
                <label class="control-label">Date</label>
-               <input type="text" name="description" id="textarea-input" rows="2" placeholder="Date..." class="form-control"/>    
+               <input type="text" name="date" id="textarea-input" rows="2" placeholder="Date..." class="form-control"/>    
             </div>
          </div>
          
