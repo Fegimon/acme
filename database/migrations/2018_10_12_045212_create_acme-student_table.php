@@ -18,7 +18,7 @@ class CreateAcmeStudentTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('dob');
-           $table->string('email');
+            $table->string('email');
             $table->string('gender');
             $table->integer('age');
             $table->string('bloodgroup');
@@ -38,7 +38,7 @@ class CreateAcmeStudentTable extends Migration
             $table->string('father_name');
             $table->string('mother_name');
             $table->string('occupation');
-            $table->integer('father_mobile');
+            $table->string('father_mobile');
             $table->string('address');
             $table->string('city');
             $table->string('state');
