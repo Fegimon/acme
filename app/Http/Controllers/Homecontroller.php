@@ -95,4 +95,47 @@ class HomeController extends Controller
         //dd($studentrs);
         return view('admin.pages.viewstudent')->with('studentrs',$studentrs);
     }
+    public function addcourse()
+    {
+       // $coursers = DB::table('acme-course')->get();
+        //dd($coursers);
+        return view('admin.pages.addcourse');
+    }
+    public function courselist()
+    {
+        $coursers = DB::table('acme-course')->where('status',1)->get();
+        //dd($coursers);
+        return view('admin.pages.courselist')->with('coursers',$coursers);
+    }
+    public function viewcourse($id)
+    {
+        //dd($id);
+        $coursers = DB::table('acme-course')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.viewcourse')->with('coursers',$coursers);
+    }
+    public function deletecourse($id)
+    {
+        //dd($id);
+        $course = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatecourse=DB::table('acme-course')->where('id', $id)->update($course);
+
+        if($updatecourse){
+            
+            return redirect('admin/courselist ');
+        }
+        else{
+            return redirect('admin/courselist');
+        }
+    }
+    public function editcourse($id)
+    {
+        $coursers = DB::table('acme-course')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.editcourse')->with('coursers',$coursers);
+    }
 }
