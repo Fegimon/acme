@@ -181,4 +181,61 @@ class HomeController extends Controller
         //dd($studentrs);
         return view('admin.pages.editenquiry')->with('enquiryrs',$enquiryrs);
     }
+
+    public function payment()
+    {
+        //$coursers = DB::table('acme-course')->where('status',1)->get();
+        //dd($coursers);
+        return view('admin.pages.payment');
+    }
+    public function paymentlist()
+    {
+        $paymentrs = DB::table('acme-payment')->where('status',1)->get();
+        //dd($coursers);
+        return view('admin.pages.paymentlist')->with('paymentrs',$paymentrs);
+    }
+    public function viewpayment($id)
+    {
+        //dd($id);
+        $paymentrs = DB::table('acme-payment')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.viewpayment')->with('paymentrs',$paymentrs);
+    }
+    public function deletepayment($id)
+    {
+        //dd($id);
+        $paymentrs = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatepaymentrs=DB::table('acme-payment')->where('id', $id)->update($paymentrs);
+
+        if($updatepaymentrs){
+            
+            return redirect('admin/paymentlist ');
+        }
+        else{
+            return redirect('admin/paymentlist');
+        }
+    }
+    public function editpayment($id)
+    {
+        $paymentrs = DB::table('acme-payment')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.editpayment')->with('paymentrs',$paymentrs);
+    }
+    public function payexpense()
+    {
+        //$coursers = DB::table('acme-course')->where('status',1)->get();
+        //dd($coursers);
+        return view('admin.pages.payexpense');
+    }
+    public function income()
+    {
+        //$coursers = DB::table('acme-course')->where('status',1)->get();
+        //dd($coursers);
+        return view('admin.pages.income');
+    }
+
 }
