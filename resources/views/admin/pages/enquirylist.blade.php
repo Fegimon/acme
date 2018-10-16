@@ -68,10 +68,10 @@
 
 <script>
  $(document).on('click','.delete',function(){
-   alert('alert');
+   //alert('alert');
     var $this = $(this);
     var id = $this.attr('data-id');
-    var url = "{{ url('admin/deletecourse') }}"+"/"+id;
+    var url = "{{ url('admin/deleteenquiry') }}"+"/"+id;
     //alert(url);
     window.location.href = url;
   });
