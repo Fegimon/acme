@@ -62,6 +62,8 @@ Route::get('enquirylist','HomeController@enquirylist');
 Route::post('addenquiry','AdmissionController@addenquiry');
 Route::get('viewenquiry/{id}','HomeController@viewenquiry');
 Route::get('editenquiry/{id}','HomeController@editenquiry');
+Route::get('deleteenquiry/{id}','HomeController@deleteenquiry');
+
 
 
 
