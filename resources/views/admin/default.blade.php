@@ -79,6 +79,17 @@
                             <li><i class="fa fa-table"></i><a href="{{url('admin/enquirylist')}}">Enquiry List</a></li>
                         </ul>
                     </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Payment</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/payment')}}">Add Payment</a></li>
+                            
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/payexpense ')}}">Expend</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/income')}}">Income</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/paymentcategory')}}">Category</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/paymentlist')}}">Paymentlist</a></li>
+                        </ul>
+                    </li>
                     
                 </ul>
             </div><!-- /.navbar-collapse -->
