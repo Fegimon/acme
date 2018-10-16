@@ -75,6 +75,14 @@ Route::get( 'deletepayment/{id}','HomeController@deletepayment');
 Route::post( 'payexpense','HomeController@payexpense');
 
 Route::get( 'payexpense','HomeController@payexpense');
+Route::post( 'addexpense','PaymentController@addexpense');
+Route::get( 'expenselist','HomeController@expenselist');
+Route::get( 'viewexpense/{id}','HomeController@viewexpense');
+Route::get('editexpense/{id}','HomeController@editexpense');
+Route::get('deleteexpense/{id}','HomeController@deleteexpense');
+
+
+
 
 
 
