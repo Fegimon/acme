@@ -72,6 +72,13 @@
                             <li><i class="fa fa-table"></i><a href="{{url('admin/courselist')}}">Course List</a></li>
                         </ul>
                     </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Enquiry</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/addenquiry')}}">Add Enquiry</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{url('admin/enquirylist')}}">Enquiry List</a></li>
+                        </ul>
+                    </li>
                     
                 </ul>
             </div><!-- /.navbar-collapse -->

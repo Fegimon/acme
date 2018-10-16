@@ -50,19 +50,22 @@ Route::get('editstudent/{id}','HomeController@editstudent');
 Route::get('deletestudent/{id}','HomeController@deletestudent');
 Route::get('viewstudent/{id}','HomeController@viewstudent');
 
-
-
-
 Route::get('deletecourse/{id}','HomeController@deletecourse');
-
 Route::get('editcourse/{id}','HomeController@editcourse');
-
 Route::get('viewcourse/{id}','HomeController@viewcourse');
-
 Route::get('addcourse','HomeController@addcourse');
-
 Route::post('addcourse','CourseController@addcourse');
 Route::get('courselist','HomeController@courselist');
+
+Route::get('addenquiry','HomeController@addenquiry');
+Route::get('enquirylist','HomeController@enquirylist');
+Route::post('addenquiry','AdmissionController@addenquiry');
+Route::get('viewenquiry/{id}','HomeController@viewenquiry');
+Route::get('editenquiry/{id}','HomeController@editenquiry');
+
+
+
+
 
 
 

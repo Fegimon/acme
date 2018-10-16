@@ -278,4 +278,84 @@ class AdmissionController extends Controller
         }
         
     }
+
+    public function addenquiry(Request $request)
+    {
+        $data=$request->all();
+         //dd($data);
+
+        if ($data != null) {
+
+            $input = [
+                'id' => isset($data['id']) ? $data['id'] : false,
+                'name' => isset($data['name']) ? $data['name'] : '',
+                'email' => isset($data['email']) ? $data['email'] : '',
+                'phone' => isset($data['phone']) ? $data['phone'] : '',
+                'email' => isset($data['email']) ? $data['email'] : '',
+                'alternate_phone' => isset($data['alternate_phone']) ? $data['alternate_phone'] : '',
+                'course' => isset($data['course']) ? $data['course'] : '',
+                'enquiry' => isset($data['enquiry']) ? $data['enquiry'] : '',
+                'doj' => isset($data['doj']) ? $data['doj'] : '',
+                'address' => isset($data['address']) ? $data['address'] : '',
+                'reference' => isset($data['reference']) ? $data['reference'] : '',
+                'comments' => isset($data['comments']) ? $data['comments'] : '',
+                'otherref' => isset($data['otherref']) ? $data['otherref'] : '',
+                'otherenq' => isset($data['otherenq']) ? $data['otherenq'] : '',
+               
+            ];
+            //dd($input);
+            $course =  json_encode($input['course']);
+            $courseenq = str_replace( array( '\'', '"', '[' , ']', '"', '>' ), ' ', $course);
+           // dd($title);
+            $rules = array(
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'course' => 'required',
+               
+            );
+            $checkValid = Validator::make($input, $rules);
+            if ($checkValid->fails()) {
+                return Response::json([
+                            'status' => 0,
+                            'message' => $checkValid->errors()->all()
+                                ], 400);
+            } else { 
+               
+                $enquiryInput = array(
+                    'id' => $input['id'],
+                    'name' => $input['name'],
+                    'email' => $input['email'],
+                    'phone'=>$input['phone'],
+                    'alternate_phone' => $input['alternate_phone'],
+                    'course' => $courseenq,
+                    'enquiry' => $input['enquiry'],
+                    'doj' => $input['doj'],
+                    'address' => $input['address'],
+                    'reference' => $input['reference'],
+                    'comments' => $input['comments'],
+                    'otherref'=>$input['otherref'],
+                    'otherenq' => $input['otherenq'],
+                    'status'=>1
+                );
+                $enquiryid = $this->admission->saveEnquiry($enquiryInput);
+               
+               if ($enquiryid) {
+                   
+                return redirect('admin/enquirylist');
+                } else {
+                    return Response::json([
+                                'status' => 0,
+                                'message' => 'Please provide valid details'
+                                    ], 400);
+                }
+            }
+        } else {
+            return Response::json([
+                        'status' => 0,
+                        'message' => "No data"
+            ]);
+        }
+        
+    }
 }

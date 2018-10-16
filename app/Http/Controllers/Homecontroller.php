@@ -138,4 +138,47 @@ class HomeController extends Controller
         //dd($studentrs);
         return view('admin.pages.editcourse')->with('coursers',$coursers);
     }
+    public function addenquiry()
+    {
+       // $coursers = DB::table('acme-course')->get();
+        //dd($coursers);
+        return view('admin.pages.addenquiry');
+    }
+    public function enquirylist()
+    {
+        $enquiryrs = DB::table('acme-enquiry')->where('status',1)->get();
+        //dd($coursers);
+        return view('admin.pages.enquirylist')->with('enquiryrs',$enquiryrs);
+    }
+    public function viewenquiry($id)
+    {
+        //dd($id);
+        $enquiryrs = DB::table('acme-enquiry')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.viewenquiry')->with('enquiryrs',$enquiryrs);
+    }
+    public function deleteenquiry($id)
+    {
+        //dd($id);
+        $course = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatecourse=DB::table('acme-enquiry')->where('id', $id)->update($course);
+
+        if($updatecourse){
+            
+            return redirect('admin/enquirylist ');
+        }
+        else{
+            return redirect('admin/enquirylist');
+        }
+    }
+    public function editenquiry($id)
+    {
+        $enquiryrs = DB::table('acme-enquiry')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.editenquiry')->with('enquiryrs',$enquiryrs);
+    }
 }
