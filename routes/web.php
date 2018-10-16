@@ -64,6 +64,18 @@ Route::get('viewenquiry/{id}','HomeController@viewenquiry');
 Route::get('editenquiry/{id}','HomeController@editenquiry');
 Route::get('deleteenquiry/{id}','HomeController@deleteenquiry');
 
+Route::get( 'payment','HomeController@payment');
+Route::post( 'payment','PaymentController@payment');
+Route::get( 'paymentlist','HomeController@paymentlist');
+Route::get( 'viewpayment/{id}','HomeController@viewpayment');
+Route::get( 'editpayment/{id}','HomeController@editpayment');
+Route::get( 'deletepayment/{id}','HomeController@deletepayment');
+
+
+Route::post( 'payexpense','HomeController@payexpense');
+
+Route::get( 'payexpense','HomeController@payexpense');
+
 
 
 
