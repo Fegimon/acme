@@ -238,4 +238,42 @@ class HomeController extends Controller
         return view('admin.pages.income');
     }
 
+    public function expenselist()
+    {
+        $paymentrs = DB::table('acme-payment')->where('status',1)->get();
+        //dd($coursers);
+        return view('admin.pages.paymentlist')->with('paymentrs',$paymentrs);
+    }
+    public function viewexpense($id)
+    {
+        //dd($id);
+        $paymentrs = DB::table('acme-payment')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.viewpayment')->with('paymentrs',$paymentrs);
+    }
+    public function editexpense($id)
+    {
+        //dd($id);
+        $paymentrs = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatepaymentrs=DB::table('acme-payment')->where('id', $id)->update($paymentrs);
+
+        if($updatepaymentrs){
+            
+            return redirect('admin/paymentlist ');
+        }
+        else{
+            return redirect('admin/paymentlist');
+        }
+    }
+    public function deleteexpense($id)
+    {
+        $paymentrs = DB::table('acme-payment')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('admin.pages.editpayment')->with('paymentrs',$paymentrs);
+    }
+
 }
