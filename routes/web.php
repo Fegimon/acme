@@ -19,6 +19,7 @@ Route::group(['middleware' => ['web']], function () {
 	// here you should put your routes
     Route::post('login','RegisterController@login');
     Route::post('register','RegisterController@register');
+    
 });
 
 
@@ -81,18 +82,27 @@ Route::get( 'viewexpense/{id}','HomeController@viewexpense');
 Route::get('editexpense/{id}','HomeController@editexpense');
 Route::get('deleteexpense/{id}','HomeController@deleteexpense');
 
+});
 
 
 
-
-
-
-
+Route::group(['prefix' => 'backend'], function(){
+    Route::get('dashboard','MainController@admindashboard');
+    Route::get('createstudent','MainController@createstudent');
+    Route::get('studentdetails','MainController@studentdetails');
+    Route::get('editstudent/{id}','MainController@editstudent');
+    Route::get('deletestudent/{id}','MainController@deletestudent');
+    Route::get('viewstudent/{id}','MainController@viewstudent');
+    Route::get('addpaymentdetail','MainController@addpaymentdetail');
+    Route::post( 'addpaymentdetails','PaymentController@addpaymentdetails');
+    Route::get('paymentdetaillist','MainController@paymentdetaillist');
 
 
 
 
 
 });
+
+Route::get('categoryselect/{id}','MainController@categoryselect');
 
 
