@@ -18,7 +18,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required"  name="payment_category" onchange="PayCategory(this);"  style="width: 100%;">
+                     <select class="form-control select2 accordion--form__text required"  value="{{$payrs->payment_category}}" name="payment_category" onchange="PayCategory(this);"  style="width: 100%;">
                         <option selected="selected">Select Category</option>
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
@@ -46,7 +46,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required"  name="category" onchange="Category(this);" style="width: 100%;">
+                     <select class="form-control select2 accordion--form__text required" value="{{$payrs->category}}" name="category" onchange="Category(this);" style="width: 100%;">
                         <option selected="selected">Select Category</option>
                         <option value="staff">Staff</option>
                         <option value="student">Student</option>
@@ -70,7 +70,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <input type="text" class="form-control" name="amount" data-mask>
+                     <input type="text" class="form-control" name="amount" value="{{$payrs->amount}}" data-mask>
                   </div>
                   <!-- /.input group -->
                </div>
@@ -82,7 +82,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required"  name="name" onchange="Newuser(this);" style="width: 100%;">
+                     <select class="form-control select2 accordion--form__text required" value="{{$payrs->username}}"  name="name" onchange="Newuser(this);" style="width: 100%;">
                         <option selected="selected">Select Name</option>
                         <!-- <option value="staff">Staff</option>
                         <option value="student">Student</option>
@@ -103,7 +103,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <input type="text" class="form-control" name="phone">
+                     <input type="text" class="form-control" value="{{$payrs->phone}}"  name="phone">
                   </div>
                   <!-- /.input group -->
                </div>
@@ -114,7 +114,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-laptop"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required"  name="payment_method" onchange="PayCategory(this);" style="width: 100%;">
+                     <select class="form-control select2 accordion--form__text required"  value="{{$payrs->payment_method}}" name="payment_method" onchange="PayCategory(this);" style="width: 100%;">
                         <option selected="selected">Select </option>
                         <option value="cod">COD</option>
                         <option value="paypal">Paypal</option>
@@ -129,7 +129,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <input type="text" class="form-control" name="date">
+                     <input type="text" class="form-control" value="{{$payrs->date}}" name="date">
                   </div>
                   <!-- /.input group -->
                </div>
@@ -140,7 +140,7 @@
                   <div class="input-group-addon">
                      <i class="fa fa-laptop"></i>
                   </div>
-                  <input type="text" class="form-control" name="comments">
+                  <input type="text" class="form-control" value="{{$payrs->comments}}" name="comments">
                </div>
                <!-- /.input group -->
             </div>
@@ -191,7 +191,7 @@
  $(document).ready(function() {
   $("select[name='category']").change(function(){
       var category_id = $(this).val();
-      //alert(category_id);
+      alert(category_id);
      // var token = $("input[name='_token']").val();
      var url = "{{url('categoryselect')}}";
       $.ajax({

@@ -26,7 +26,7 @@
                     <!-- <th>School Name</th>
                     <th>School City</th>
                     <th>School Mobile</th> -->
-                    <th>View</th>
+                    <!-- <th>View</th> -->
                     <th>Edit </th>
                     <th>Delete</th>
                 </tr>
@@ -38,16 +38,18 @@
                     ?>
                         <tr>
                            <td>{{++$i}}</td>
-                           <td>{{ $val->firstname}}</td>
-                           <td><img src="{{ asset('public/upload/student/'.$val->student_image) }}" width="40px"></td>
+                           <td>{{ $val->payment_category}}</td>
+                           <td>{{ $val->category}}</td>
                         
-                           <td>{{ $val->email}}</td>
-                           <td>{{ $val->address}}</td>
-                           <td>{{ $val->admission_no}}</td>
-                           <td>{{ $val->admission_date}}</td>
+                           <td>{{ $val->username}}</td>
+                           <td>{{ $val->amount}}</td>
+                           <td>{{ $val->phone}}</td>
+                           <td>{{ $val->payment_method}}</td>
+                           <td>{{ $val->comments}}</td>
+
                         
-                           <td><a href="{{ url('backend/viewstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td>
-                           <td><a href="{{ url('backend/editstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
+                           <!-- <td><a href="{{ url('backend/viewstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td> -->
+                           <td><a href="{{ url('backend/editpayment/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
                            <td><button type="button" class="btn btn-gradient-forest waves-effect waves-light m-1 delete" data-id="{{ $val->id }}" > <i class="fa fa fa-trash-o"></i> <span>Delete</span> </button></td>
                         </tr>
                         @endforeach
@@ -94,10 +96,10 @@
 
 <script>
  $(document).on('click','.delete',function(){
-   alert('alert');
+   //alert('alert');
     var $this = $(this);
     var id = $this.attr('data-id');
-    var url = "{{ url('backend/deletestudent') }}"+"/"+id;
+    var url = "{{ url('backend/deletepaymentdetail') }}"+"/"+id;
     //alert(url);
     window.location.href = url;
   });

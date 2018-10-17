@@ -5,7 +5,7 @@
         <div class="col-xs-12">
     <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Course Details</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -13,41 +13,38 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Student Photo</th>
-                    <!-- <th>DOB</th> -->
-                    <!-- <th>Gender</th> -->
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Admission No</th>
-                    <th>Admission Date</th>
-                    <!-- <th>DOJ</th> -->
-                    <!-- <th>School Name</th>
-                    <th>School City</th>
-                    <th>School Mobile</th> -->
-                    <th>View</th>
-                    <th>Edit </th>
-                    <th>Delete</th>
+                <th>S.No</th>
+                           <th>coursecode</th>
+                           <th>coursename</th>
+                           <th>description</th>
+                           <th>category</th>
+                           <th>sub_category</th>
+                           <th>startdate</th>
+                           <th>enddate</th>
+                
+                           <!-- <th>View</th> -->
+                           <th>Edit </th>
+                           <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($studentrs as $val)
+                @foreach ($coursers as $val)
                      <?php
                            $i=0;
                     ?>
                         <tr>
                            <td>{{++$i}}</td>
-                           <td>{{ $val->firstname}}</td>
-                           <td><img src="{{ asset('public/upload/student/'.$val->student_image) }}" width="40px"></td>
+                           <td>{{ $val->coursecode}}</td>
                         
-                           <td>{{ $val->email}}</td>
-                           <td>{{ $val->address}}</td>
-                           <td>{{ $val->admission_no}}</td>
-                           <td>{{ $val->admission_date}}</td>
+                           <td>{{ $val->coursename}}</td>
+                           <td>{{ $val->description}}</td>
+                           <td>{{ $val->category}}</td>
+                           <td>{{ $val->sub_category}}</td>
+                           <td>{{ $val->startdate}}</td>
+                           <td>{{ $val->enddate}}</td>
                         
-                           <td><a href="{{ url('backend/viewstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td>
-                           <td><a href="{{ url('backend/editstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
+                           <!-- <td><a href="{{ url('admin/viewcourse/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td> -->
+                           <td><a href="{{ url('backend/editcourse/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
                            <td><button type="button" class="btn btn-gradient-forest waves-effect waves-light m-1 delete" data-id="{{ $val->id }}" > <i class="fa fa fa-trash-o"></i> <span>Delete</span> </button></td>
                         </tr>
                         @endforeach
@@ -94,10 +91,10 @@
 
 <script>
  $(document).on('click','.delete',function(){
-  // alert('alert');
+   //alert('alert');
     var $this = $(this);
     var id = $this.attr('data-id');
-    var url = "{{ url('backend/deletestudent') }}"+"/"+id;
+    var url = "{{ url('backend/deletecourse') }}"+"/"+id;
     //alert(url);
     window.location.href = url;
   });

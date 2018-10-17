@@ -13,41 +13,35 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Student Photo</th>
-                    <!-- <th>DOB</th> -->
-                    <!-- <th>Gender</th> -->
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Admission No</th>
-                    <th>Admission Date</th>
-                    <!-- <th>DOJ</th> -->
-                    <!-- <th>School Name</th>
-                    <th>School City</th>
-                    <th>School Mobile</th> -->
-                    <th>View</th>
-                    <th>Edit </th>
-                    <th>Delete</th>
+                <th>S.No</th>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Phone</th>
+                           <th>Address</th>
+                           <th>Course</th>
+                           <th>Comments</th>
+                           <!-- <th>View</th> -->
+                           <th>Edit </th>
+                           <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($studentrs as $val)
+                @foreach ($enquiryrs as $val)
                      <?php
                            $i=0;
                     ?>
                         <tr>
                            <td>{{++$i}}</td>
-                           <td>{{ $val->firstname}}</td>
-                           <td><img src="{{ asset('public/upload/student/'.$val->student_image) }}" width="40px"></td>
+                           <td>{{ $val->name}}</td>
                         
                            <td>{{ $val->email}}</td>
+                           <td>{{ $val->phone}}</td>
                            <td>{{ $val->address}}</td>
-                           <td>{{ $val->admission_no}}</td>
-                           <td>{{ $val->admission_date}}</td>
+                           <td>{{ $val->course}}</td>
+                           <td>{{ $val->comments}}</td>
                         
-                           <td><a href="{{ url('backend/viewstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td>
-                           <td><a href="{{ url('backend/editstudent/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
+                           <!-- <td><a href="{{ url('admin/viewenquiry/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td> -->
+                           <td><a href="{{ url('admin/editenquiry/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
                            <td><button type="button" class="btn btn-gradient-forest waves-effect waves-light m-1 delete" data-id="{{ $val->id }}" > <i class="fa fa fa-trash-o"></i> <span>Delete</span> </button></td>
                         </tr>
                         @endforeach
@@ -94,7 +88,7 @@
 
 <script>
  $(document).on('click','.delete',function(){
-  // alert('alert');
+   //alert('alert');
     var $this = $(this);
     var id = $this.attr('data-id');
     var url = "{{ url('backend/deletestudent') }}"+"/"+id;
