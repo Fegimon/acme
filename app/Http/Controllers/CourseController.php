@@ -68,7 +68,7 @@ class CourseController extends Controller
                
                if ($courseid) {
                    
-                return redirect('admin/courselist');
+                return redirect('backend/courselist');
                 } else {
                     return Response::json([
                                 'status' => 0,
