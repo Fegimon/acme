@@ -96,8 +96,24 @@ Route::group(['prefix' => 'backend'], function(){
     Route::get('addpaymentdetail','MainController@addpaymentdetail');
     Route::post( 'addpaymentdetails','PaymentController@addpaymentdetails');
     Route::get('paymentdetaillist','MainController@paymentdetaillist');
+    Route::get('editpayment/{id}','MainController@editpayment');
+    Route::get('deletepaymentdetail/{id}','MainController@deletepaymentdetail');
 
 
+
+    Route::get('addenquiry','MainController@addenquiry');
+    Route::get('enquirylist','MainController@enquirylist');
+    Route::post('addenquiry','AdmissionController@addenquiry');
+    Route::get('viewenquiry/{id}','MainController@viewenquiry');
+    Route::get('editenquiry/{id}','MainController@editenquiry');
+    Route::get('deleteenquiry/{id}','MainController@deleteenquiry');
+
+    Route::get('deletecourse/{id}','MainController@deletecourse');
+    Route::get('editcourse/{id}','MainController@editcourse');
+    Route::get('viewcourse/{id}','MainController@viewcourse');
+    Route::get('addcourse','MainController@addcourse');
+    Route::post('addcourse','CourseController@addcourse');
+    Route::get('courselist','MainController@courselist');
 
 
 
