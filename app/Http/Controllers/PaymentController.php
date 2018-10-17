@@ -282,7 +282,7 @@ class PaymentController extends Controller
                     'payment_category' => $input['payment_category'],
                     'category' => $input['category'],
                     'amount' => $input['amount'],
-                    'user_id' => $input['name'],
+                    'username' => $input['name'],
                     'payment_method' => $input['payment_method'],
                     'phone' => $input['phone'],
                     'date'=>$input['date'],
@@ -298,7 +298,7 @@ class PaymentController extends Controller
                
                if ($paymentid) {
                    
-                return redirect('backend/paymentdetails');
+                return redirect('backend/paymentdetaillist');
                 } else {
                     return Response::json([
                                 'status' => 0,
