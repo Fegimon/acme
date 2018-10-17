@@ -22,7 +22,7 @@ class AdminController extends Controller
     }
 
    
-        public function login()
+ public function login()
         {
 
         $rules = array(
@@ -51,7 +51,7 @@ class AdminController extends Controller
                             return redirect('staff/dashboard');
                         }
                         if($verifyuser->role_id==1){
-                            return redirect('admin/dashboard');
+                            return redirect('backend/dashboard');
                         }
 
             } else {        
