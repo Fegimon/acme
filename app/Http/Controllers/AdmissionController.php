@@ -342,7 +342,7 @@ class AdmissionController extends Controller
                
                if ($enquiryid) {
                    
-                return redirect('admin/enquirylist');
+                return redirect('backend/enquirylist');
                 } else {
                     return Response::json([
                                 'status' => 0,
