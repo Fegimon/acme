@@ -6,7 +6,7 @@
          <div class="col-md-12">
             <div class="card">
                <div class="card-header">
-                  <strong class="card-title">Course Details</strong>
+                  <strong class="card-title">Payment Details</strong>
                   <!-- <a href="{{url('admin/createstudent')}}"><i class="fa fa-user-plus" aria-hidden="true" style="margin-left:700px;color:blue">Add Student</i></a> -->
                </div>
                <div class="card-body">
