@@ -160,14 +160,14 @@ class MainController extends Controller
     public function categoryselect($id)
     {
       //dd($id);
-      if($id==1){
+      if($id=="staff"){
        $category = DB::table('acme-staff')
        ->select('acme-staff.*')
     //    ->join('tbl_category','tbl_category.id','=','tbl_subcategory.category_id')
     //    ->where('tbl_subcategory.category_id',$id)
        //->pluck("tbl_subcategory","id")->all();
       ->get();
-      }if($id==2){
+      }if($id=="student"){
         $category = DB::table('acme-student')
         ->select('acme-student.*')
         // ->join('tbl_category','tbl_category.id','=','tbl_subcategory.category_id')
@@ -181,8 +181,35 @@ class MainController extends Controller
     }
     public function paymentdetaillist()
     {
-        $enquiryrs = DB::table('paymentdetails')->where('status',1)->get();
-        //dd($coursers);
-        return view('backend.pages.paymentdetaillist')->with('enquiryrs',$enquiryrs);
+        $payrs = DB::table('acme-paymentdetails')
+        ->select('acme-paymentdetails.*')
+        ->where('status',1)
+        ->get();
+        //dd($payrs);
+        return view('backend.pages.paymentdetaillist')->with('payrs',$payrs);
+    }
+    public function editpayment($id)
+    {
+        $payrs = DB::table('acme-paymentdetails')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('backend.pages.editpayment')->with('payrs',$payrs);
+    }
+    public function deletepaymentdetail($id)
+    {
+        //dd($id);
+        $course = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatecourse=DB::table('acme-paymentdetails')->where('id', $id)->update($course);
+
+        if($updatecourse){
+            
+            return redirect('backend/paymentdetaillist ');
+        }
+        else{
+            return redirect('backend/paymentdetaillist');
+        }
     }
 }
