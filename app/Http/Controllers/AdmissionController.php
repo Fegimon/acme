@@ -116,7 +116,7 @@ class AdmissionController extends Controller
     public function addstudent(Request $request)
     {
         $data=$request->all();
-      // print_r($data);die;
+         //print_r($data);die;
 
         if ($data != null) {
 
@@ -141,7 +141,7 @@ class AdmissionController extends Controller
                // 'school_zip' => isset($data['school_zip']) ? $data['school_zip'] : '',
                // 'school_mobile' => isset($data['school_mobile']) ? $data['school_mobile'] : '',
                // 'school_fax' => isset($data['school_fax']) ? $data['school_fax'] : '',
-                'school_email' => isset($data['school_email']) ? $data['school_email'] : '',
+                'course' => isset($data['course']) ? $data['course'] : '',
 
                 'father_name' => isset($data['father_name']) ? $data['father_name'] : '',
                 'mother_name' => isset($data['mother_name']) ? $data['mother_name'] : '',
@@ -208,7 +208,7 @@ class AdmissionController extends Controller
                     // 'school_zip' => $input['school_zip'],
                     // 'school_mobile'=>$input['school_mobile'],
                     // 'school_fax' => $input['school_fax'],
-                    'school_email' => $input['school_email'],
+                    'course' => $input['course'],
 
 
                     'father_name'=>$input['father_name'],
@@ -242,7 +242,7 @@ class AdmissionController extends Controller
                     // 'school_zip' => $input['school_zip'],
                     // 'school_mobile'=>$input['school_mobile'],
                     // 'school_fax' => $input['school_fax'],
-                    'school_email' => $input['school_email'],
+                    'course' => $input['course'],
 
 
                     'father_name'=>$input['father_name'],

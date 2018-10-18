@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use Illuminate\Support\Facades\Redirect;
+
 use Validator;
 use Response;
 use DB;
+use Session;
 
 class PaymentController extends Controller
 {
@@ -242,16 +245,14 @@ class PaymentController extends Controller
 
             $input = [
                 'id' => isset($data['id']) ? $data['id'] : false,
+                'payment_type' => isset($data['payment_type']) ? $data['payment_type'] : '',
                 'payment_category' => isset($data['payment_category']) ? $data['payment_category'] : '',
-                'category' => isset($data['category']) ? $data['category'] : '',
                 'amount' => isset($data['amount']) ? $data['amount'] : '',
                 'name' => isset($data['name']) ? $data['name'] : '',
                 'payment_method' => isset($data['payment_method']) ? $data['payment_method'] : '',
                 'phone' => isset($data['phone']) ? $data['phone'] : '',
                 'date' => isset($data['date']) ? $data['date'] : '',
                 'comments' => isset($data['comments']) ? $data['comments'] : '',
-                'otherpay' => isset($data['otherpay']) ? $data['otherpay'] : '',
-                'othercat' => isset($data['othercat']) ? $data['othercat'] : '',
 
                 
             ];
@@ -259,8 +260,8 @@ class PaymentController extends Controller
            
 
             $rules = array(
+                'payment_type' => 'required',
                 'payment_category' => 'required',
-                'category' => 'required',
                 'phone' => 'required',
                 'amount'   => 'required',
                 'payment_method' => 'required',
@@ -271,25 +272,26 @@ class PaymentController extends Controller
             );
             $checkValid = Validator::make($input, $rules);
             if ($checkValid->fails()) {
-                return Response::json([
-                            'status' => 0,
-                            'message' => $checkValid->errors()->all()
-                                ], 400);
+                // return Response::json([
+                //             'status' => 0,
+                //             'message' => $checkValid->errors()->all()
+                //                 ], 400);
+                $data = Session::flash('error', 'Please Provide All Datas!');
+                return Redirect::back()
+                ->withInput()
+                ->withErrors($data);
             } else { 
                
                 $paymentInput = array(
                     'id' => $input['id'],
+                    'payment_type' => $input['payment_type'],
                     'payment_category' => $input['payment_category'],
-                    'category' => $input['category'],
                     'amount' => $input['amount'],
                     'username' => $input['name'],
                     'payment_method' => $input['payment_method'],
                     'phone' => $input['phone'],
                     'date'=>$input['date'],
                     'comments' => $input['comments'],
-                    'other_category'=>$input['othercat'],
-                    'otherpay'=>$input['otherpay'],
-
                     'status'=>1,
                    
                 );
@@ -297,8 +299,11 @@ class PaymentController extends Controller
                 $paymentid = $this->payment->savePaymentdetails ($paymentInput);
                
                if ($paymentid) {
-                   
-                return redirect('backend/paymentdetaillist');
+                return Response::json([
+                    'status' => 1,
+                    'message' => 'Successfully Added'
+                        ], 200);
+                //return redirect('backend/paymentdetaillist');
                 } else {
                     return Response::json([
                                 'status' => 0,

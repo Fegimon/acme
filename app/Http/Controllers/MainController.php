@@ -25,7 +25,7 @@ class MainController extends Controller
     public function createstudent()
     {
        
-        return view('backend.pages.addstudent');
+        return view('backend.pages.createstudent');
     }
     public function studentdetails()
     {
