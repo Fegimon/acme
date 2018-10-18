@@ -68,7 +68,7 @@
                      <i class="fa fa-calendar"></i>
 
                      </div>
-                     <input type="text" name="startdate" class="form-control accordion--form__text required"   required  />
+                     <input type="date" name="startdate" class="form-control accordion--form__text required"   required  />
 
                   </div>
                   <!-- /.input group -->
@@ -80,7 +80,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <input type="text" name="enddate" class="form-control accordion--form__text required" required />
+                     <input type="date" name="enddate" class="form-control accordion--form__text required" required />
 
                             </div>
                   <!-- /.input group -->
@@ -91,7 +91,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <textarea name="description" id="textarea-input" rows="2" placeholder="Description..." class="form-control"></textarea>            </div>
+                     <textarea name="description" id="textarea-input" rows="2" placeholder="Description..." class="form-control" required></textarea>            </div>
                   <!-- /.input group -->
                </div>
             
