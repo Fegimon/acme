@@ -63,21 +63,6 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i>
-            <span>Student</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{url('backend/createstudent')}}"><i class="fa fa-circle-o"></i> Add Student</a></li>
-            <li><a href="{{url('backend/studentdetails')}}"><i class="fa fa-circle-o"></i> Student List</a></li>
-            <!-- <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li> -->
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i>
             <span>Payment</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -86,8 +71,6 @@
           <ul class="treeview-menu">
             <li><a href="{{url('backend/addpaymentdetail')}}"><i class="fa fa-circle-o"></i> Add Payment Details</a></li>
             <li><a href="{{url('backend/paymentdetaillist')}}"><i class="fa fa-circle-o"></i> Payment Details List</a></li>
-            <!-- <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li> -->
           </ul>
         </li>
         <li class="treeview">
@@ -101,10 +84,23 @@
           <ul class="treeview-menu">
             <li><a href="{{url('backend/addenquiry')}}"><i class="fa fa-circle-o"></i> Add Enquiry</a></li>
             <li><a href="{{url('backend/enquirylist')}}"><i class="fa fa-circle-o"></i> Enquiry List</a></li>
-            <!-- <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li> -->
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i>
+            <span>Student</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('backend/createstudent')}}"><i class="fa fa-circle-o"></i> Add Student</a></li>
+            <li><a href="{{url('backend/studentdetails')}}"><i class="fa fa-circle-o"></i> Student List</a></li>
+          </ul>
+        </li>
+       
+       
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i>
@@ -116,8 +112,6 @@
           <ul class="treeview-menu">
             <li><a href="{{url('backend/addcourse')}}"><i class="fa fa-circle-o"></i> Add Course</a></li>
             <li><a href="{{url('backend/courselist')}}"><i class="fa fa-circle-o"></i>Course List</a></li>
-            <!-- <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li> -->
           </ul>
         </li>
         <!-- <li class="treeview">
