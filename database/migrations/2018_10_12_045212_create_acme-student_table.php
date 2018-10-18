@@ -33,7 +33,7 @@ class CreateAcmeStudentTable extends Migration
             // $table->string('school_zip');
             // $table->integer('school_mobile');
             // $table->string('school_fax');
-            $table->string('school_email');
+            $table->string('course');
 
             $table->string('father_name');
             $table->string('mother_name');
