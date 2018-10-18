@@ -38,7 +38,7 @@
          <div class="col-sm-2 col-lg-4">
             <div class="form-group">
                <label class="control-label">Date Of Birth</label>
-               <input type="text" name="dob" class="form-control" value="{{$studentrs->dob}}" title="FirstName should only contain letters" />
+               <input type="date" name="dob" class="form-control" value="{{$studentrs->dob}}" title="FirstName should only contain letters" />
             </div>
          </div>
          <div class="col-md-2 col-lg-4">
@@ -113,7 +113,7 @@
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
                <label class="control-label">Admission Date</label>
-               <input type="text" name="admission_date" class="form-control" value="{{$studentrs->admission_date}}"  title="Lastname should only contain letters"/>
+               <input type="date" name="admission_date" class="form-control" value="{{$studentrs->admission_date}}"  title="Lastname should only contain letters"/>
             </div>
          </div>
       </div>
@@ -121,14 +121,19 @@
          <div class="col-sm-2 col-lg-4">
             <div class="form-group">
                <label class="control-label">Date Of Joining</label>
-               <input type="text" name="doj" class="form-control"  value="{{$studentrs->doj}}"   title="FirstName should only contain letters" />
+               <input type="date" name="doj" class="form-control"  value="{{$studentrs->doj}}"   title="FirstName should only contain letters" />
             </div>
          </div>
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
-               <label class="control-label">Email</label>
-               <input type="text" name="school_email" class="form-control"  value="{{$studentrs->school_email}}"  title="Lastname should only contain letters"/>
-            </div>
+               <label class="control-label">Course</label>
+               <select class="form-control select2 accordion--form__text required" value="{{$studentrs->course}}"  name="course" style="width: 100%;">
+                  <option selected="selected">Select Course</option>
+                  <option value="java">Java</option>
+                  <option value="dotnet">Dotnet</option>
+                  <option value="php">PHP</option>
+                </select>             
+                </div>
          </div>
       </div>
    </div>
