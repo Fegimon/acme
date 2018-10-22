@@ -157,7 +157,7 @@
 </section>
 <script>
   function ValidationEvent() {
-    alert('asda');
+   // alert('asda');
 // Storing Field Values In Variables
 var paymenttype = document.getElementById("paymenttype").value;
 var paymentcategory = document.getElementById("paymentcategory").value;
@@ -205,7 +205,7 @@ return false;
  $(document).ready(function() {
  
   $('#payForm').on('submit', function() {
-    alert('asa');
+   // alert('asa');
          return $('#payForm').jqxValidator('validate');
      });
   // $("select[name='category']").change(function(){
@@ -232,7 +232,7 @@ return false;
 <script>
 
 $(document).on('click', '#btnSubmit', function () {
-    alert('click');
+    //alert('click');
        //var data  = $('#addstudent').serializeArray();
        var data = new FormData($('#payForm')[0]);
        var url = "{{url('backend/addpaymentdetails')}}";
