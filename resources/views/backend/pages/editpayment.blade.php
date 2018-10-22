@@ -46,7 +46,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" value="{{$payrs->category}}" name="category" onchange="Category(this);" style="width: 100%;">
+                     <select class="form-control select2 accordion--form__text required" value="{{$payrs->payment_type}}" name="category" onchange="Category(this);" style="width: 100%;">
                         <option selected="selected">Select Category</option>
                         <option value="staff">Staff</option>
                         <option value="student">Student</option>

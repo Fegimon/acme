@@ -39,7 +39,7 @@
                         <tr>
                            <td>{{++$i}}</td>
                            <td>{{ $val->payment_category}}</td>
-                           <td>{{ $val->category}}</td>
+                           <td>{{ $val->payment_type}}</td>
                         
                            <td>{{ $val->username}}</td>
                            <td>{{ $val->amount}}</td>
