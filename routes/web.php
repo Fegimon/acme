@@ -98,6 +98,7 @@ Route::group(['prefix' => 'backend'], function(){
     Route::get('paymentdetaillist','MainController@paymentdetaillist');
     Route::get('editpayment/{id}','MainController@editpayment');
     Route::get('deletepaymentdetail/{id}','MainController@deletepaymentdetail');
+    Route::get('viewpayment/{id}','MainController@viewpayment');
 
 
 
