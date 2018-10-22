@@ -212,4 +212,11 @@ class MainController extends Controller
             return redirect('backend/paymentdetaillist');
         }
     }
+    public function viewpayment($id)
+    {
+        //dd($id);
+        $paymentrs = DB::table('acme-paymentdetails')->where('id',$id)->first();
+        //dd($studentrs);
+        return view('backend.pages.viewpayment')->with('paymentrs',$paymentrs);
+    }
 }
