@@ -17,7 +17,7 @@ class CreateAcmePaymentDetailsTable extends Migration
             $table->increments('id');
             $table->string('payment_type');
             $table->string('payment_category');
-            $table->string('name');
+            $table->string('username');
             $table->string('amount');
             $table->string('phone');
             $table->string('payment_method');
