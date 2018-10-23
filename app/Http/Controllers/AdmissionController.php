@@ -181,10 +181,14 @@ class AdmissionController extends Controller
             );
             $checkValid = Validator::make($input, $rules);
             if ($checkValid->fails()) {
-                return Response::json([
-                            'status' => 0,
-                            'message' => $checkValid->errors()->all()
-                                ], 400);
+                $data = Session::flash('error', 'Please Provide All Datas!');
+                return Redirect::back()
+                ->withInput()
+                ->withErrors($data);
+                // return Response::json([
+                //             'status' => 0,
+                //             'message' => $checkValid->errors()->all()
+                //                 ], 400);
             } else { 
                if($imageName!=''){
                 $studentInput = array(
