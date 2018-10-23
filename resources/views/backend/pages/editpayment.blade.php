@@ -9,22 +9,23 @@
             </div>
             <div class="box-body">
                <!-- Date dd/mm/yyyy -->
-               <form action="{{url('backend/addpaymentdetails')}}" method="post">
+               <form action="{{url('backend/addpaymentdetails')}}" method="post" id="payForm">
                {{ csrf_field() }}
+               <input type="text" name="id" class="form-control"  value="{{$payrs->id}}" />
 
                <div class="form-group">
-                  <label>Payment Category</label>
+                  <label>Payment Type</label>
                   <div class="input-group">
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required"  value="{{$payrs->payment_category}}" name="payment_category" onchange="PayCategory(this);"  style="width: 100%;">
-                        <option selected="selected">Select Category</option>
+                     <select class="form-control select2 accordion--form__text required" id="paymenttype" value="{{$payrs->payment_category}}" name="payment_type" onchange="PayCategory(this);"  style="width: 100%;" required>
+                        <option >Select Category</option>
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
                         <option value="pay">Others</option>
-
                      </select>
+                    
                      </div>
                      <br>
                      <div class="form-group" id="otherpay" style="display: none;">
@@ -40,30 +41,31 @@
                <!-- /.form group -->
                <!-- Date mm/dd/yyyy -->
                <div class="form-group">
-               <label>User Category</label>
+               <label>Payment Category</label>
 
                   <div class="input-group">
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" value="{{$payrs->payment_type}}" name="category" onchange="Category(this);" style="width: 100%;">
-                        <option selected="selected">Select Category</option>
-                        <option value="staff">Staff</option>
-                        <option value="student">Student</option>
-                        <option value="3">Others</option>
+                     <select class="form-control select2 accordion--form__text required" id="paymentcategory" value="{{$payrs->payment_type}}" name="payment_category" onchange="Category(this);" style="width: 100%;" required>
+                        <option >Select Category</option>
+                        <option value="fees">Fees</option>
+                        <option value="salary">Salary</option>
+                        <option value="collection">Collection</option>
+                        <option value="donation">Donation</option>
+                        <!-- <option value="3">Others</option> -->
                      </select>
                      </div>
-                     <br>
+                     <!-- <br>
                      <div class="form-group" id="othercat" style="display: none;">
                             <input type="text" class="form-control" name="othercat" data-mask placeholder="Other User Category">
                            <br> <input type="text" class="form-control" name="newuser" data-mask placeholder="New User Name">
 
-                    </div>
+                    </div> -->
                   
                   <!-- /.input group -->
                </div>
-               <!-- /.form group -->
-               <!-- phone mask -->
+               
                <div class="form-group">
                   <label>Amount</label>
                   <div class="input-group">
@@ -82,12 +84,8 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" value="{{$payrs->username}}"  name="name" onchange="Newuser(this);" style="width: 100%;">
-                        <option selected="selected">Select Name</option>
-                        <!-- <option value="staff">Staff</option>
-                        <option value="student">Student</option>
-                        <option value="otheruser">Others</option> -->
-                     </select>
+                     <input type="text" class="form-control" id="name" name="name" value="{{$payrs->username}}" data-mask placeholder=" User Name" required>
+
                      </div>
                      <br>
                      <div class="form-group" id="newuser" style="display: none;">
@@ -146,7 +144,7 @@
             </div>
             </div>
           
-            <button type="submit" class="btn btn-block btn-primary">Submit</button>
+            <button type="submit" id="btnSubmit" class="btn btn-block btn-primary">Submit</button>
 
          </div>
          <!-- /.box-body -->
@@ -156,7 +154,49 @@
    </div>
   
 </section>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
 <script>
+
+$(document).on('click', '#btnSubmit', function () {
+    //alert('click');
+       //var data  = $('#addstudent').serializeArray();
+       var data = new FormData($('#payForm')[0]);
+       var url = "{{url('backend/addpaymentdetails')}}";
+     $.ajax({
+           type:'POST',
+           url:url,
+           data:data,
+           dataType: "json",
+           processData: false,
+           contentType: false,
+           async:true,
+           headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+           beforeSend: function () {
+                $("#validation-errors").hide().empty();
+            },
+           success:function(response){
+               // console.log(response);
+               if(response.status='1')
+               
+               {
+                   console.log(response);
+                   window.location.href = "{{ url('backend/paymentdetaillist') }}";
+                 
+               }if(response.status='0')
+               {
+                $("#validation-errors").show();
+               }
+        }
+     });
+   });
+
+</script>
+
+
+<!-- <script>
    function PayCategory(that) {
    if (that.value == "pay") {
    //alert("check");
@@ -185,9 +225,9 @@
    document.getElementById("newuser").style.display = "none";
    }
    }
-</script>
+</script> -->
 
-<script>
+<!-- <script>
  $(document).ready(function() {
   $("select[name='category']").change(function(){
       var category_id = $(this).val();
@@ -207,5 +247,5 @@
       });
   });
 });
-</script>
+</script> -->
 @stop

@@ -14,8 +14,8 @@
                 <thead>
                 <tr>
                     <th>S.No</th>
+                    <th>Payment Type</th>
                     <th>Payment Category</th>
-                    <th>User Category</th>
                     <th>Name</th>
                     <th>Amount</th>
                     <th>Phone</th>
@@ -38,8 +38,8 @@
                     ?>
                         <tr>
                            <td>{{++$i}}</td>
-                           <td>{{ $val->payment_category}}</td>
                            <td>{{ $val->payment_type}}</td>
+                           <td>{{ $val->payment_category}}</td>
                         
                            <td>{{ $val->username}}</td>
                            <td>{{ $val->amount}}</td>

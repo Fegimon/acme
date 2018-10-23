@@ -36,8 +36,8 @@
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
-        {{ $paymentrs->payment_category}}   <br><br>
         {{ $paymentrs->payment_type}}   <br><br>
+        {{ $paymentrs->payment_category}}   <br><br>
         {{ $paymentrs->amount}}   <br><br>
         {{ $paymentrs->username}}   <br><br>
         {{ $paymentrs->phone}}   <br><br>

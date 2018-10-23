@@ -500,7 +500,7 @@
 <script>
 
 $(document).on('click', '#btnSubmit', function () {
-    alert('click');
+    //alert('click');
        //var data  = $('#addstudent').serializeArray();
        var data = new FormData($('#addstudent')[0]);
        var url = "{{url('admin/addstudent')}}";

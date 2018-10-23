@@ -145,7 +145,7 @@
             </div>
             </div>
           
-            <button type="submit" id="btnSubmit" class="btn btn-block btn-primary">Submit</button>
+            <button type="button" id="btnSubmit" class="btn btn-block btn-primary">Submit</button>
 
          </div>
          <!-- /.box-body -->
