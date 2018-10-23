@@ -62,56 +62,56 @@
         </li> -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i>
+          <i class="fa fa-paypal"></i></i>
             <span>Payment</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('backend/addpaymentdetail')}}"><i class="fa fa-circle-o"></i> Add Payment Details</a></li>
-            <li><a href="{{url('backend/paymentdetaillist')}}"><i class="fa fa-circle-o"></i> Payment Details List</a></li>
+            <li><a href="{{url('backend/addpaymentdetail')}}"><i class="fa fa-address-book"></i> Add Payment Details</a></li>
+            <li><a href="{{url('backend/paymentdetaillist')}}"><i class="fa fa-th-list"></i></i> Payment Details List</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i>
+            <i class="fa fa-envelope"></i>
             <span>Enquiry</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('backend/addenquiry')}}"><i class="fa fa-circle-o"></i> Add Enquiry</a></li>
-            <li><a href="{{url('backend/enquirylist')}}"><i class="fa fa-circle-o"></i> Enquiry List</a></li>
+            <li><a href="{{url('backend/addenquiry')}}"><i class="fa fa-address-book"></i> Add Enquiry</a></li>
+            <li><a href="{{url('backend/enquirylist')}}"><i class="fa fa-th-list"></i> Enquiry List</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i>
+            <i class="fa fa-child"></i>
             <span>Student</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('backend/createstudent')}}"><i class="fa fa-circle-o"></i> Add Student</a></li>
-            <li><a href="{{url('backend/studentdetails')}}"><i class="fa fa-circle-o"></i> Student List</a></li>
+            <li><a href="{{url('backend/createstudent')}}"><i class="fa fa-address-book"></i> Add Student</a></li>
+            <li><a href="{{url('backend/studentdetails')}}"><i class="fa fa-th-list"></i> Student List</a></li>
           </ul>
         </li>
        
        
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i>
+            <i class="fa fa-clone"></i>
             <span>Course</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('backend/addcourse')}}"><i class="fa fa-circle-o"></i> Add Course</a></li>
-            <li><a href="{{url('backend/courselist')}}"><i class="fa fa-circle-o"></i>Course List</a></li>
+            <li><a href="{{url('backend/addcourse')}}"><i class="fa fa-address-book"></i> Add Course</a></li>
+            <li><a href="{{url('backend/courselist')}}"><i class="fa fa-th-list"></i>Course List</a></li>
           </ul>
         </li>
         <!-- <li class="treeview">
