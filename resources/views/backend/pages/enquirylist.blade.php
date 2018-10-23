@@ -5,7 +5,7 @@
         <div class="col-xs-12">
     <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Enquiry List </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -20,7 +20,7 @@
                            <th>Address</th>
                            <th>Course</th>
                            <th>Comments</th>
-                           <!-- <th>View</th> -->
+                           <th>View</th>
                            <th>Edit </th>
                            <th>Delete</th>
                 </tr>
@@ -40,7 +40,7 @@
                            <td>{{ $val->course}}</td>
                            <td>{{ $val->comments}}</td>
                         
-                           <!-- <td><a href="{{ url('admin/viewenquiry/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td> -->
+                           <td><a href="{{ url('backend/viewenquiry/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td>
                            <td><a href="{{ url('backend/editenquiry/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
                            <td><button type="button" class="btn btn-gradient-forest waves-effect waves-light m-1 delete" data-id="{{ $val->id }}" > <i class="fa fa fa-trash-o"></i> <span>Delete</span> </button></td>
                         </tr>
