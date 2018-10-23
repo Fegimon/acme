@@ -25,6 +25,7 @@ class MainController extends Controller
     public function createstudent()
     {
         $coursers = DB::table('acme-course')->get();
+
         return view('backend.pages.createstudent')->with('course',$coursers);
     }
     public function studentdetails()
@@ -111,7 +112,7 @@ class MainController extends Controller
     public function addenquiry()
     {
         $coursers = DB::table('acme-course')->get();
-        //dd($coursers);
+      
         return view('backend.pages.addenquiry')->with('course',$coursers);
     }
     public function enquirylist()
