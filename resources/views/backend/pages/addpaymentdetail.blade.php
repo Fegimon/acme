@@ -27,7 +27,7 @@
                         <option >Select Category</option>
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
-                        <option value="pay">Others</option>
+                        <!-- <option value="pay">Others</option> -->
 
                      </select>
                      </div>
@@ -38,7 +38,7 @@
                             <input type="text" class="form-control" name="otherpay" data-mask placeholder="Other Payment Category" required> -->
                         
                         <!-- /.input group -->
-                    <!-- </div> -->
+                    <!-- </div>   -->
                   
                   <!-- /.input group -->
                </div>
@@ -113,7 +113,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-laptop"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" id="paymentmode" name="payment_method" onchange="PayCategory(this);" style="width: 100%;" required>
+                     <select class="form-control select2 accordion--form__text required" id="paymentmode" name="payment_method"  style="width: 100%;" required>
                         <option selected="selected">Select </option>
                         <option value="cod">COD</option>
                         <option value="paypal">Paypal</option>
