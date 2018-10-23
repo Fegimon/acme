@@ -58,12 +58,12 @@
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
-          <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-          <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
+          <a href="{{url('backend/paymentdetaillist')}}" target="_blank" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back</a>
+          <!-- <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
           </button>
           <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
             <i class="fa fa-download"></i> Generate PDF
-          </button>
+          </button> -->
         </div>
       </div>
     </section>
