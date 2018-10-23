@@ -5,13 +5,13 @@
       <div class="col-md-6">
          <div class="box box-danger">
             <div class="box-header">
-               <h3 class="box-title">Payment Details</h3>
+               <h3 class="box-title">Edit Payment Details</h3>
             </div>
             <div class="box-body">
                <!-- Date dd/mm/yyyy -->
-               <form action="{{url('backend/addpaymentdetails')}}" method="post" id="payForm">
+               <form action="#" method="post" id="payForm">
                {{ csrf_field() }}
-               <input type="text" name="id" class="form-control"  value="{{$payrs->id}}" />
+               <input type="hidden" name="id" class="form-control"  value="{{$payrs->id}}" />
 
                <div class="form-group">
                   <label>Payment Type</label>
@@ -19,22 +19,24 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" id="paymenttype" value="{{$payrs->payment_category}}" name="payment_type" onchange="PayCategory(this);"  style="width: 100%;" required>
+                     <select class="form-control select2 accordion--form__text required" id="paymenttype" value="{{$payrs->payment_type}}" name="payment_type" onchange="PayCategory(this);"  style="width: 100%;" required>
                         <option >Select Category</option>
+                        <option value="<?php echo $payrs->payment_type;?>" <?php echo ($payrs->payment_type) ? ' selected="selected"' : '';?>><?php echo $payrs->payment_type;?></option>
+
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
-                        <option value="pay">Others</option>
+                        <!-- <option value="pay">Others</option> -->
                      </select>
                     
                      </div>
                      <br>
-                     <div class="form-group" id="otherpay" style="display: none;">
+                     <!-- <div class="form-group" id="otherpay" style="display: none;">
                         
                             
-                            <input type="text" class="form-control" name="otherpay" data-mask placeholder="Other Payment Category">
+                            <input type="text" class="form-control" name="otherpay" data-mask placeholder="Other Payment Category"> -->
                         
                         <!-- /.input group -->
-                    </div>
+                    <!-- </div> -->
                   
                   <!-- /.input group -->
                </div>
@@ -47,8 +49,9 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" id="paymentcategory" value="{{$payrs->payment_type}}" name="payment_category" onchange="Category(this);" style="width: 100%;" required>
+                     <select class="form-control select2 accordion--form__text required" id="paymentcategory" value="{{$payrs->payment_category}}" name="payment_category" onchange="Category(this);" style="width: 100%;" required>
                         <option >Select Category</option>
+                        <option value="<?php echo $payrs->payment_category;?>" <?php echo ($payrs->payment_category) ? ' selected="selected"' : '';?>><?php echo $payrs->payment_category;?></option>
                         <option value="fees">Fees</option>
                         <option value="salary">Salary</option>
                         <option value="collection">Collection</option>
@@ -114,6 +117,8 @@
                      </div>
                      <select class="form-control select2 accordion--form__text required"  value="{{$payrs->payment_method}}" name="payment_method" onchange="PayCategory(this);" style="width: 100%;">
                         <option selected="selected">Select </option>
+                        <option value="<?php echo $payrs->payment_method;?>" <?php echo ($payrs->payment_method) ? ' selected="selected"' : '';?>><?php echo $payrs->payment_method;?></option>
+
                         <option value="cod">COD</option>
                         <option value="paypal">Paypal</option>
                         <option value="netbanking">Netbanking</option>
@@ -144,7 +149,7 @@
             </div>
             </div>
           
-            <button type="submit" id="btnSubmit" class="btn btn-block btn-primary">Submit</button>
+            <button type="button" id="btnSubmit" class="btn btn-block btn-primary">Submit</button>
 
          </div>
          <!-- /.box-body -->
@@ -195,7 +200,16 @@ $(document).on('click', '#btnSubmit', function () {
 
 </script>
 
-
+<!-- <script>
+   function PayCategory(that) {
+   if (that.value == "pay") {
+   //alert("check");
+   document.getElementById("otherpay").style.display = "block";
+   } else {
+   document.getElementById("otherpay").style.display = "none";
+   }
+   }
+</script> -->
 <!-- <script>
    function PayCategory(that) {
    if (that.value == "pay") {

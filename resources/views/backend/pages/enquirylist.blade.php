@@ -91,7 +91,7 @@
    //alert('alert');
     var $this = $(this);
     var id = $this.attr('data-id');
-    var url = "{{ url('backend/deletestudent') }}"+"/"+id;
+    var url = "{{ url('backend/deleteenquiry') }}"+"/"+id;
     //alert(url);
     window.location.href = url;
   });

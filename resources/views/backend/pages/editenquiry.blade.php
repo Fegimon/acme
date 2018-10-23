@@ -5,7 +5,7 @@
       <div class="col-md-6">
          <div class="box box-danger">
             <div class="box-header">
-               <h3 class="box-title">Enquiry Details</h3>
+               <h3 class="box-title">Edit Enquiry Details</h3>
             </div>
             <div class="box-body">
                <!-- Date dd/mm/yyyy -->
@@ -71,6 +71,8 @@
                       
                      </div>
                      <select name="course[]" id="multiple-select" multiple="" class="form-control" value="{{$enquiryrs->course}}" required>
+                     <option value="<?php echo $enquiryrs->course;?>" <?php echo ($enquiryrs->course) ? ' selected="selected"' : '';?>><?php echo $enquiryrs->course;?></option>
+
                                 <option value="java">Java</option>
                                 <option value="dotnet">DotNet</option>
                                 <option value="php">PHP</option>
@@ -89,6 +91,8 @@
                      </div>
                      <select name="enquiry" id="select" class="form-control" onchange="Enquiry(this);"value="{{$enquiryrs->enquiry}}"  required>
                                 <option value="0">Please select</option>
+                                <option value="<?php echo $enquiryrs->enquiry;?>" <?php echo ($enquiryrs->enquiry) ? ' selected="selected"' : '';?>><?php echo $enquiryrs->enquiry;?></option>
+
                                 <option value="self">Self</option>
                                 <option value="son">Son</option>
                                 <option value="daughter">Daughter</option>
@@ -130,6 +134,8 @@
                   </div>
                   <select name="reference" id="select" class="form-control" onchange="Reference(this);" value="{{$enquiryrs->reference}}" required>
                                 <option value="0">Please select</option>
+                                <option value="<?php echo $enquiryrs->reference;?>" <?php echo ($enquiryrs->reference) ? ' selected="selected"' : '';?>><?php echo $enquiryrs->reference;?></option>
+
                                 <option value="internet">Inetnet</option>
                                 <option value="facebook">Facebook</option>
                                 <option value="newpaper">NewPaper</option>

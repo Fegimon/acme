@@ -5,7 +5,7 @@
       <div class="col-md-6">
          <div class="box box-danger">
             <div class="box-header">
-               <h3 class="box-title">Add Course</h3>
+               <h3 class="box-title">Edit Course</h3>
             </div>
             <div class="box-body">
                <!-- Date dd/mm/yyyy -->
@@ -92,7 +92,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <textarea name="description" id="textarea-input" value="{{$coursers->description}}" rows="2" placeholder="Description..." class="form-control"></textarea>            </div>
+                     <textarea name="description" id="textarea-input" value="{{$coursers->description}}" rows="2" placeholder="Description..." class="form-control">{{$coursers->description}}</textarea>            </div>
                   <!-- /.input group -->
                </div>
             

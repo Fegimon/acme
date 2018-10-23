@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> Payment Setails
+            <i class="fa fa-globe"></i> Payment Details
             <!-- <small class="pull-right">Date: 2/10/2014</small> -->
           </h2>
         </div>
