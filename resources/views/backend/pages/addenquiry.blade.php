@@ -70,10 +70,13 @@
                       
                      </div>
                      <select name="course[]" id="multiple-select" multiple="" class="form-control" required>
-                                <option value="java">Java</option>
+                       @foreach ($course as $val)
+                        <option value="{{$val->coursename}}">{{$val->coursename}}</option>
+                        @endforeach
+                                <!-- <option value="java">Java</option>
                                 <option value="dotnet">DotNet</option>
                                 <option value="php">PHP</option>
-                                <option value="testing">Testing</option>
+                                <option value="testing">Testing</option> -->
                                
                               </select>
                   </div>

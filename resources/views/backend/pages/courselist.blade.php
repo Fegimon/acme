@@ -6,6 +6,9 @@
     <div class="box">
             <div class="box-header">
               <h3 class="box-title">Course Details List</h3>
+              <div class="box-tools pull-right">
+              <a href="{{url('backend/addcourse')}}"><button type="button" class="btn btn-info btn-md" ><b>ADD</b><i class="fa fa-user-plus"></i></button></a>
+                </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
