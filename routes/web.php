@@ -31,6 +31,7 @@ Route::get('register','HomeController@register');
 
 
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
