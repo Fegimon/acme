@@ -38,6 +38,11 @@ Route::get('/login', 'Auth\AdminController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\AdminController@login')->name('login.submit');
 Route::get('staff/dashboard','HomeController@staffdashboard');
 
+Route::get('/logout', function() {
+    auth()->logout();
+     return redirect('/');
+});
+
 
 Route::group(['prefix' => 'admin'], function(){
 Route::get('dashboard','HomeController@admindashboard');
