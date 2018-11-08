@@ -295,9 +295,12 @@
                                   </div>
                                   <select class="form-control select2 accordion--form__text required"  name="course" style="width: 100%;">
                                     <option selected="selected">Select Course</option>
-                                    <option value="java">Java</option>
+                                    @foreach ($course as $val)
+                                    <option value="{{$val->coursename}}">{{$val->coursename}}</option>
+                                    @endforeach
+                                    <!-- <option value="java">Java</option>
                                     <option value="dotnet">Dotnet</option>
-                                    <option value="php">PHP</option>
+                                    <option value="php">PHP</option> -->
                                   </select>              
                                 </div>
                                 <!-- /.input group -->
@@ -399,12 +402,13 @@
                             </div>
                            <!-- /.form group -->
                            </div>
-                           
-                           </div>
                            <div class="accordion--form__row">
                               <input class="accordion--form__submit btn btn-primary" type="button" id="btnSubmit" name="submit" value="Submit">
                            </div>
                            <a class="accordion--form__prev-btn">Prev</a>
+                           </div>
+                           
+                          
                         </div>
                      </fieldset>
                   </form>

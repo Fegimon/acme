@@ -26,10 +26,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($enquiryrs as $val)
-                     <?php
+                <?php
                            $i=0;
                     ?>
+                @foreach ($enquiryrs as $val)
+                     
                         <tr>
                            <td>{{++$i}}</td>
                            <td>{{ $val->name}}</td>

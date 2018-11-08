@@ -32,10 +32,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($payrs as $val)
-                     <?php
+                <?php
                            $i=0;
                     ?>
+                @foreach ($payrs as $val)
+                     
                         <tr>
                            <td>{{++$i}}</td>
                            <td>{{ $val->payment_type}}</td>

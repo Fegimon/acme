@@ -32,10 +32,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($studentrs as $val)
-                     <?php
+                <?php
                            $i=0;
                     ?>
+                @foreach ($studentrs as $val)
+                    
                         <tr>
                            <td>{{++$i}}</td>
                            <td>{{ $val->firstname}}</td>

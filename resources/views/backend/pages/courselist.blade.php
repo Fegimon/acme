@@ -28,10 +28,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($coursers as $val)
-                     <?php
+                <?php
                            $i=0;
                     ?>
+                @foreach ($coursers as $val)
+                     
                         <tr>
                            <td>{{++$i}}</td>
                            <td>{{ $val->coursecode}}</td>
