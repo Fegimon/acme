@@ -153,8 +153,8 @@ class MainController extends Controller
     public function editenquiry($id)
     {
         $enquiryrs = DB::table('acme-enquiry')->where('id',$id)->first();
-        //dd($studentrs);
-        return view('backend.pages.editenquiry')->with('enquiryrs',$enquiryrs);
+        $coursers = DB::table('acme-course')->get();
+        return view('backend.pages.editenquiry')->with('enquiryrs',$enquiryrs)->with('course',$coursers);
     }
     public function addpaymentdetail()
     {
