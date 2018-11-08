@@ -19,8 +19,12 @@ class MainController extends Controller
     }
     public function admindashboard()
     {
-       
-        return view('backend.pages.dashboard');
+        $studentcount = DB::table('acme-student')->where('status',1)->count();
+        $coursecount = DB::table('acme-course')->where('status',1)->count();
+        $enquirycount = DB::table('acme-enquiry')->where('status',1)->count();
+
+        return view('backend.pages.dashboard')->with('studentcount',$studentcount)->with('coursecount',$coursecount)
+        ->with('enquirycount',$enquirycount);
     }
     public function createstudent()
     {

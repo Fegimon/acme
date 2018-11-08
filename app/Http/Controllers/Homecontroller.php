@@ -60,8 +60,8 @@ class HomeController extends Controller
     }
     public function createstudent()
     {
-       
-        return view('admin.pages.createstudent');
+        $course = DB::table('acme-course')->get();
+        return view('admin.pages.createstudent')->with('course',$course);
     }
     public function editstudent($id)
     {
