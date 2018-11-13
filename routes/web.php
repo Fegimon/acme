@@ -129,10 +129,6 @@ Route::group(['prefix' => 'backend'], function(){
 
 
 
-
-
-
-
 });
 
 Route::get('categoryselect/{id}','MainController@categoryselect');
