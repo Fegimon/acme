@@ -33,7 +33,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <input type="email" id="email-input" name="email" placeholder="Enter Email" class="form-control" required>
+                     <input type="email" id="email-input" name="email" placeholder="Enter Email" class="form-control" >
                      </div>
                      
                   
@@ -47,7 +47,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <input type="text" id="password-input" name="phone" placeholder="Phone" class="form-control" required>                  </div>
+                     <input type="text" id="password-input" name="phone" placeholder="Phone" class="form-control" >                  </div>
                   <!-- /.input group -->
                </div>
                <!-- /.form group -->
@@ -58,7 +58,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <input type="text" id="disabled-input" name="alternate_phone" placeholder="Alternate Phone"  class="form-control" required>
+                     <input type="text" id="disabled-input" name="alternate_phone" placeholder="Alternate Phone"  class="form-control" >
                   <!-- /.input group -->
                </div>
                <!-- /.form group -->
@@ -69,7 +69,7 @@
                      <div class="input-group-addon">
                       
                      </div>
-                     <select name="course[]" id="multiple-select" multiple="" class="form-control" required>
+                     <select name="course[]" id="multiple-select" multiple="" class="form-control" >
                        @foreach ($course as $val)
                         <option value="{{$val->coursename}}">{{$val->coursename}}</option>
                         @endforeach
@@ -89,7 +89,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-laptop"></i>
                      </div>
-                     <select name="enquiry" id="select" class="form-control" onchange="Enquiry(this);" required>
+                     <select name="enquiry" id="select" class="form-control" onchange="Enquiry(this);" >
                                 <option value="0">Please select</option>
                                 <option value="self">Self</option>
                                 <option value="son">Son</option>
@@ -110,7 +110,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <input type="date" id="password-input" name="doj" placeholder="Joining Date" class="form-control" required>                  </div>
+                     <input type="date" id="password-input" name="doj" placeholder="Joining Date" class="form-control" >                  </div>
                   <!-- /.input group -->
                </div>
             
@@ -120,7 +120,7 @@
                   <div class="input-group-addon">
                      <i class="fa fa-laptop"></i>
                   </div>
-                  <input type="text" class="form-control" name="address" required> 
+                  <input type="text" class="form-control" name="address" > 
                </div>
                <!-- /.input group -->
             </div>
@@ -130,7 +130,7 @@
                   <div class="input-group-addon">
                      <i class="fa fa-laptop"></i>
                   </div>
-                  <select name="reference" id="select" class="form-control" onchange="Reference(this);" required>
+                  <select name="reference" id="select" class="form-control" onchange="Reference(this);" >
                                 <option value="0">Please select</option>
                                 <option value="internet">Inetnet</option>
                                 <option value="facebook">Facebook</option>
@@ -151,7 +151,7 @@
                   <div class="input-group-addon">
                      <i class="fa fa-laptop"></i>
                   </div>
-                  <input type="text" class="form-control" name="comments" required>
+                  <input type="text" class="form-control" name="comments" >
                </div>
                <!-- /.input group -->
             </div>

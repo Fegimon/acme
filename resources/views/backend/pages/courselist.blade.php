@@ -21,7 +21,6 @@
                            <th>coursename</th>
                            <th>description</th>
                            <th>category</th>
-                           <th>sub_category</th>
                            <th>startdate</th>
                            <th>enddate</th>
                 
@@ -43,7 +42,7 @@
                            <td>{{ $val->coursename}}</td>
                            <td>{{ $val->description}}</td>
                            <td>{{ $val->category}}</td>
-                           <td>{{ $val->sub_category}}</td>
+
                            <td>{{ $val->startdate}}</td>
                            <td>{{ $val->enddate}}</td>
                         

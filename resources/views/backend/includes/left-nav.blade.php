@@ -30,42 +30,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <!-- <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li> -->
-        <!-- <li>
-          <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
-          </a>
-        </li> -->
-        <li class="treeview">
-          <a href="#">
-          <i class="fa fa-paypal"></i></i>
-            <span>Payment</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{url('backend/addpaymentdetail')}}"><i class="fa fa-address-book"></i> Add Payment Details</a></li>
-            <li><a href="{{url('backend/paymentdetaillist')}}"><i class="fa fa-th-list"></i></i> Payment Details List</a></li>
-          </ul>
-        </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-envelope"></i>
@@ -79,6 +44,20 @@
             <li><a href="{{url('backend/enquirylist')}}"><i class="fa fa-th-list"></i> Enquiry List</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+          <i class="fa fa-paypal"></i></i>
+            <span>Payment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('backend/addpaymentdetail')}}"><i class="fa fa-address-book"></i> Add Payment Details</a></li>
+            <li><a href="{{url('backend/paymentdetaillist')}}"><i class="fa fa-th-list"></i></i> Payment Details List</a></li>
+          </ul>
+        </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-child"></i>
@@ -103,6 +82,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{url('backend/addcoursecategory')}}"><i class="fa fa-address-book"></i>Course Category</a></li>
             <li><a href="{{url('backend/addcourse')}}"><i class="fa fa-address-book"></i> Add Course</a></li>
             <li><a href="{{url('backend/courselist')}}"><i class="fa fa-th-list"></i>Course List</a></li>
           </ul>

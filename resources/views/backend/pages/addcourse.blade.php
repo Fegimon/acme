@@ -9,7 +9,7 @@
             </div>
             <div class="box-body">
                <!-- Date dd/mm/yyyy -->
-               <form action="{{url('admin/addcourse')}}" method="post">
+               <form action="{{url('backend/addcourse')}}" method="post">
                {{ csrf_field() }}
 
                <div class="form-group">
@@ -17,7 +17,7 @@
                   <div class="input-group">
                      <div class="input-group-addon">
                      </div>
-                     <input type="text" name="coursecode" id="coursecode" class="form-control "   required  />                     </div>
+                     <input type="text" name="coursecode" id="coursecode" class="form-control "     />                     </div>
                     
                   
                   <!-- /.input group -->
@@ -31,7 +31,7 @@
                      <div class="input-group-addon">
                         <!-- <i class="fa fa-calendar"></i> -->
                      </div>
-                     <input type="text" name="coursename" class="form-control accordion--form__text required" required />
+                     <input type="text" name="coursename" class="form-control "  />
                      </div>
                      
                   
@@ -40,25 +40,31 @@
                <!-- /.form group -->
                <!-- phone mask -->
                <div class="form-group">
-                  <label>Category</label>
+                  <label>Category:</label>
                   <div class="input-group">
                      <div class="input-group-addon">
-                        <!-- <i class="fa fa-phone"></i> -->
+                        <i class="fa fa-laptop"></i>
                      </div>
-                     <input type="text" name="category" class="form-control accordion--form__text required"   required  />
+                     <select class="form-control select2 " id="category" name="category"  style="width: 100%;" >
+                        <option selected="selected">Select </option>
+                        @foreach ($category as $val)
+                        <option value="{{$val->category}}">{{$val->category}}</option>
+                        @endforeach
+                     </select>
+                  </div>
                   <!-- /.input group -->
                </div>
                <!-- /.form group -->
                <!-- phone mask -->
-               <div class="form-group">
+               <!-- <div class="form-group">
                   <label>Sub Category</label>
                   <div class="input-group">
-                     <div class="input-group-addon">
+                     <div class="input-group-addon"> -->
                         <!-- <i class="fa fa-phone"></i> -->
-                     </div>
-                     <input type="text" name="sub_category" class="form-control accordion--form__text required" required />
+                     <!-- </div>
+                     <input type="text" name="sub_category" class="form-control accordion--form__text required" required /> -->
                   <!-- /.input group -->
-               </div>
+               <!-- </div> -->
                <!-- /.form group -->
                <!-- IP mask -->
                <div class="form-group">
@@ -68,7 +74,7 @@
                      <i class="fa fa-calendar"></i>
 
                      </div>
-                     <input type="date" name="startdate" class="form-control accordion--form__text required"   required  />
+                     <input type="date" name="startdate" class="form-control "     />
 
                   </div>
                   <!-- /.input group -->
@@ -80,7 +86,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <input type="date" name="enddate" class="form-control accordion--form__text required" required />
+                     <input type="date" name="enddate" class="form-control " />
 
                             </div>
                   <!-- /.input group -->
@@ -91,7 +97,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <textarea name="description" id="textarea-input" rows="2" placeholder="Description..." class="form-control" required></textarea>            </div>
+                     <textarea name="description" id="textarea-input" rows="2" placeholder="Description..." class="form-control" ></textarea>            </div>
                   <!-- /.input group -->
                </div>
             

@@ -20,7 +20,7 @@
         <strong> Course Name</strong><br><br>
         <strong> Description</strong><br><br>
         <strong> Category</strong><br><br>
-        <strong>Sub Category</strong><br><br>
+      
         <strong> Start Date</strong><br><br>
         <strong> End Date</strong><br><br>
         <!-- <strong>Religion</strong><br><br>
@@ -40,7 +40,7 @@
         {{$coursers->coursename}}   <br><br>
         {{$coursers->description}}   <br><br>
         {{$coursers->category}}  <br><br>
-        {{$coursers->sub_category}}   <br><br>
+      
         {{$coursers->startdate}}  <br><br>
         {{$coursers->enddate}}   <br><br>
        
