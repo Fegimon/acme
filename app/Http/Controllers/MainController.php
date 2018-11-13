@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Response;
 
 class MainController extends Controller
 {
@@ -72,9 +73,9 @@ class MainController extends Controller
     }
     public function addcourse()
     {
-       // $coursers = DB::table('acme-course')->get();
+        $category = DB::table('course_category')->get();
         //dd($coursers);
-        return view('backend.pages.addcourse');
+        return view('backend.pages.addcourse')->with('category',$category);
     }
     public function courselist()
     {
@@ -110,8 +111,9 @@ class MainController extends Controller
     public function editcourse($id)
     {
         $coursers = DB::table('acme-course')->where('id',$id)->first();
-        //dd($studentrs);
-        return view('backend.pages.editcourse')->with('coursers',$coursers);
+        $category = DB::table('course_category')->get();
+
+        return view('backend.pages.editcourse')->with('coursers',$coursers)->with('category',$category);
     }
     public function addenquiry()
     {
@@ -223,5 +225,38 @@ class MainController extends Controller
         $paymentrs = DB::table('acme-paymentdetails')->where('id',$id)->first();
         //dd($studentrs);
         return view('backend.pages.viewpayment')->with('paymentrs',$paymentrs);
+    }
+    public function addcoursecategory()
+    {
+        $course = DB::table('course_category')->where('status',1)->get();
+        return view('backend.pages.addcoursecategory')->with('course',$course);
+    }
+    public function editcoursecategory($id)
+    {
+       
+        $course = DB::table('course_category')->where('id',$id)->first();
+      // dd($course);
+        if ($course) {
+            return Response::json([
+                'status' => 1,
+                'data'   => $course,
+            ], 200);} else {
+            return Response::json([
+                'status'  => 0,
+                'message' => 'course not found',
+            ], 400);
+        }
+    }
+    public function deletcoursecategory($id)
+    {
+        //dd($id);
+        $course = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatecourse=DB::table('course_category')->where('id', $id)->update($course); 
+        return redirect('backend/addcoursecategory ');
+       
     }
 }
