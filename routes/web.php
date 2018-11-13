@@ -128,7 +128,6 @@ Route::group(['prefix' => 'backend'], function(){
     Route::get('deletcoursecategory/{id}','MainController@deletcoursecategory');
 
 
-
 });
 
 Route::get('categoryselect/{id}','MainController@categoryselect');
