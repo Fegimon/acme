@@ -111,7 +111,7 @@
       <!-- /.box-header -->
       <div class="box-body">
          <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                <form class="accordion--form" action="{{url('admin/addstudent')}}" method="post" id="addstudent" enctype="multipart/form-data">
                   {{ csrf_field() }}
                      <h1>Add Student</h1>
@@ -122,12 +122,12 @@
                         <div class="accordion--form__wrapper accordion--form__wrapper-active">
                            <div class="col-md-6">
                               <div class="form-group">
-                                 <label>First Name:</label>
+                                 <label>Name:</label>
                                  <div class="input-group">
                                     <div class="input-group-addon">
                                        <i class="fa fa-user"></i>
                                     </div>
-                                    <input type="text" name="firstname" class="form-control accordion--form__text required" >
+                                    <input type="text" name="firstname" class="form-control" >
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -139,7 +139,7 @@
                                     <div class="input-group-addon">
                                        <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" name="dob" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                    <input type="date" name="dob" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                     
                                  </div>
                                  <!-- /.input group -->
@@ -147,45 +147,32 @@
                               <!-- /.form group -->
                            </div>
                            <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Last Name:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                      <i class="fa fa-user"></i>
-                                  </div>
-                                  <input type="text" name="lastname" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-                                </div>
-                                <!-- /.input group -->
-                            </div>
-                           <!-- /.form group -->
-                           <!-- Date mm/dd/yyyy -->
+                        
                             <div class="form-group">
                                 <label>Email:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
                                       <i class="fa fa-envelope-o"></i>
                                   </div>
-                                  <input type="email" name="email" class="form-control accordion--form__text required"
+                                  <input type="email" name="email" class="form-control"
                                       data-inputmask="'mask': 'aa@gmail.com'" data-mask>                
                                 </div>
-                                <!-- /.input group -->
+                              
                             </div>
-                           </div>
-                           <!-- /.form group -->
-                           <!-- phone mask -->
-                           <div class="col-md-6">
                             <div class="form-group">
                                 <label>Age:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
                                       <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" name="age" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                  <input type="text" name="age" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                 </div>
                                 <!-- /.input group -->
                             </div>
-                           <!-- /.form group -->
-                           <!-- Date mm/dd/yyyy -->
+                        
+                           </div>
+                       
+                           <div class="col-md-6">
                             <div class="form-group">
                                 <label>Gender:</label>
                                 <div class="input-group">
@@ -198,48 +185,49 @@
                                     <option value="female">Female</option>
                                   </select>                
                                 </div>
-                                <!-- /.input group -->
+                            
                             </div>
+                            <div class="form-group">
+                                <label>Student Calss:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" name="student_class" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                </div>
+                            </div>
+                        
                            </div>
                            <div class="col-md-6">
-                            <div class="form-group">
-                            <label>Blood Group:</label>
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-tint"></i>
-                                 </div>
-                                 <input type="text" name="bloodgroup" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-                              </div>
-                                <!-- /.input group -->
-                            </div>
-                           <!-- /.form group -->
-                           <!-- Date mm/dd/yyyy -->
-                            <div class="form-group">
-                                <label>Religion:</label>
+                             <div class="form-group">
+                                <label>Student School:</label>
                                 <div class="input-group">
-                                  <div class="input-group-addon">
-                                      <i class="fa fa-user"></i>
-                                  </div>
-                                  <select class="form-control select2 accordion--form__text required"  name="religion" style="width: 100%;">
-                                    <option selected="selected">Select Religion</option>
-                                    <option value="hindu">Hindu</option>
-                                    <option value="muslem">Muslem</option>
-                                    <option value="christian">Christian</option>
-                                  </select>                
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" name="student_school" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                 </div>
-                                <!-- /.input group -->
                             </div>
+                            <div class="form-group">
+                                <label>Student Syllabus:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" name="student_syllabus" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                </div>
+                            </div>
+                            
                            </div>
                            <div class="form-group">
-                              <label>Upload Image:</label>
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-file-image-o"></i>
-                                 </div>
-                                 <input type="file" name="student_image" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-                              </div>
-                              <!-- /.input group -->
-                           </div>
+                                <label>Upload Image:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-file-image-o"></i>
+                                    </div>
+                                    <input type="file" name="student_image" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                </div>
+                            </div>
                            
                            <a class="accordion--form__next-btn">Next</a>
                         </div>
@@ -250,29 +238,26 @@
 
                         <div class="accordion--form__wrapper">
                         <div class="col-md-6">
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                  <label>Admission Number:</label>
                                  <div class="input-group">
                                     <div class="input-group-addon">
                                        <i class="fa fa-braille"></i>
                                     </div>
-                                    <input type="text" name="admission_no" class="form-control accordion--form__text required" >
-                                 </div>
-                                 <!-- /.input group -->
-                              </div>
-                              <!-- /.form group -->
-                              <!-- /.form-group -->
+                                    <input type="text" name="admission_no" class="form-control" >
+                                 </div>                                
+                              </div> -->
                               <div class="form-group">
                                  <label>Date of Joining:</label>
                                  <div class="input-group">
                                     <div class="input-group-addon">
                                        <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" name="doj" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                    <input type="date" name="doj" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                  </div>
-                                 <!-- /.input group -->
+                                 
                               </div>
-                              <!-- /.form group -->
+                             
                            </div>
                            <div class="col-md-6">
                             <div class="form-group">
@@ -281,31 +266,23 @@
                                   <div class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                   </div>
-                                  <input type="date" name="admission_date" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-                                </div>
-                                <!-- /.input group -->
+                                  <input type="date" name="admission_date" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                </div>                             
                             </div>
-                           <!-- /.form group -->
-                           <!-- Date mm/dd/yyyy -->
-                            <div class="form-group">
-                                <label>Course:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                      <i class="fa fa-bars"></i>
-                                  </div>
-                                  <select class="form-control select2 accordion--form__text required"  name="course" style="width: 100%;">
-                                    <option selected="selected">Select Course</option>
-                                    @foreach ($course as $val)
-                                    <option value="{{$val->coursename}}">{{$val->coursename}}</option>
-                                    @endforeach
-                                    <!-- <option value="java">Java</option>
-                                    <option value="dotnet">Dotnet</option>
-                                    <option value="php">PHP</option> -->
-                                  </select>              
-                                </div>
-                                <!-- /.input group -->
-                            </div>
+                           
                            </div>
+                                <div class="form-group">
+                                 <label>Course:</label>
+                                 <div class="input-group">
+                                    <div class="input-group-addon">
+                                    </div>
+                                    <select name="course[]" id="multiple-select" multiple="" class="form-control" >
+                                       @foreach ($course as $val)
+                                       <option value="{{$val->id}}">{{$val->coursename}}</option>
+                                       @endforeach
+                                    </select>
+                                 </div>
+                              </div>
                            <a class="accordion--form__prev-btn">Prev</a>
                            <a class="accordion--form__next-btn">Next</a>
                         </div>
@@ -320,23 +297,50 @@
                                     <div class="input-group-addon">
                                        <i class="fa fa-user"></i>
                                     </div>
-                                    <input type="text" name="father_name" class="form-control accordion--form__text required" >
+                                    <input type="text" name="father_name" class="form-control" >
                                  </div>
-                                 <!-- /.input group -->
+                            
                               </div>
-                              <!-- /.form group -->
-                              <!-- /.form-group -->
+                         
                               <div class="form-group">
                                  <label>Father Occupation:</label>
                                  <div class="input-group">
                                     <div class="input-group-addon">
                                        <i class="fa fa-user"></i>
                                     </div>
-                                    <input type="text" name="occupation" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                    <input type="text" name="occupation" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                  </div>
-                                 <!-- /.input group -->
+                     
                               </div>
-                              <!-- /.form group -->
+                              <div class="form-group">
+                                <label>Father Mobile:</label>
+                                <div class="input-group">
+                                  <div class="input-group-addon">
+                                      <i class="fa fa-phone-square"></i>
+                                  </div>
+                                  <input type="text" name="father_mobile" class="form-control">                
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                 <label>Address:</label>
+                                 <div class="input-group">
+                                      <div class="input-group-addon">
+                                         <i class="fa fa-address-card"></i>
+                                       </div>
+                                        <input type="text" name="address" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                    </div>
+                             
+                               </div>
+                               <div class="form-group">
+                                <label>State:</label>
+                                <div class="input-group">
+                                  <div class="input-group-addon">
+                                      <i class="fa fa-address-card"></i>
+                                  </div>
+                                  <input type="text" name="state" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+             
+                                </div>
+                            </div>
                            </div>
                            <div class="col-md-6">
                             <div class="form-group">
@@ -345,63 +349,56 @@
                                   <div class="input-group-addon">
                                       <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" name="mother_name" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                  <input type="text" name="mother_name" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                 </div>
-                                <!-- /.input group -->
                             </div>
-                           <!-- /.form group -->
-                           <!-- Date mm/dd/yyyy -->
                             <div class="form-group">
-                                <label>Father Mobile:</label>
+                                 <label>Mother Occupation:</label>
+                                 <div class="input-group">
+                                    <div class="input-group-addon">
+                                       <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" name="mother_occupation" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                 </div>
+                     
+                              </div>
+                              <div class="form-group">
+                                <label>Mother Mobile:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
                                       <i class="fa fa-phone-square"></i>
                                   </div>
-                                  <input type="text" name="father_mobile" class="form-control accordion--form__text required">                
+                                  <input type="text" name="mother_mobile" class="form-control">                
                                 </div>
-                                <!-- /.input group -->
                             </div>
-                           </div>
-                           <!-- /.form group -->
-                           <!-- phone mask -->
-                           <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Address:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                      <i class="fa fa-address-card"></i>
-                                  </div>
-                                  <input type="text" name="address" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-                                </div>
-                                <!-- /.input group -->
-                            </div>
-                           <!-- /.form group -->
-                           <!-- Date mm/dd/yyyy -->
-                            <div class="form-group">
-                                <label>State:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                      <i class="fa fa-address-card"></i>
-                                  </div>
-                                  <input type="text" name="state" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-             
-                                </div>
-                                <!-- /.input group -->
-                            </div>
+                           
                            </div>
                            <div class="col-md-6">
-                            <div class="form-group">
-                            <label>City:</label>
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-address-card"></i>
-                                 </div>
-                                 <input type="text" name="city" class="form-control accordion--form__text required" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-                              </div>
-                                <!-- /.input group -->
-                            </div>
-                           <!-- /.form group -->
+                           
+                           <div class="form-group">
+                                 <label>Zip Code:</label>
+                                 <div class="input-group">
+                                      <div class="input-group-addon">
+                                         <i class="fa fa-address-card"></i>
+                                       </div>
+                                        <input type="text" name="zip_code" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                    </div>
+                             
+                               </div>
+                            
                            </div>
+                           <div class="col-md-6">
+                             <div class="form-group">
+                                 <label>City:</label>
+                                 <div class="input-group">
+                                      <div class="input-group-addon">
+                                         <i class="fa fa-address-card"></i>
+                                       </div>
+                                        <input type="text" name="city" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                    </div>
+                             
+                               </div>
+                            </div>
                            <div class="accordion--form__row">
                               <input class="accordion--form__submit btn btn-primary" type="button" id="btnSubmit" name="submit" value="Submit">
                            </div>
@@ -508,7 +505,9 @@ $(document).on('click', '#btnSubmit', function () {
                
                {
                    console.log(response);
-                   window.location.href = "{{ url('backend/studentdetails') }}";
+                   var id = response.studentid;
+                   url = "{{ url('backend/coursedetails') }}"+"/"+id;
+                   window.location.href = url;
                  
                }
         }

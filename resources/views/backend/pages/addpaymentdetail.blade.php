@@ -11,7 +11,7 @@
                <!-- Date dd/mm/yyyy -->
                <form action="{{url('backend/addpaymentdetails')}}" id="payForm" method="post" onsubmit="return ValidationEvent()">
                {{ csrf_field() }}
-               <div class="flash-message">
+                  <div class="flash-message">
                               @include('backend.pages.notification')
                         </div>
 
@@ -23,7 +23,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" id="paymenttype" name="payment_type" onchange="PayCategory(this);"  style="width: 100%;" required>
+                     <select class="form-control select2 " id="paymenttype" name="payment_type" onchange="PayCategory(this);"  style="width: 100%;" >
                         <option >Select Category</option>
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
@@ -51,7 +51,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" id="paymentcategory" name="payment_category" onchange="Category(this);" style="width: 100%;" required>
+                     <select class="form-control select2 " id="paymentcategory" name="payment_category" onchange="Category(this);" style="width: 100%;" >
                         <option >Select Category</option>
                         <option value="fees">Fees</option>
                         <option value="salary">Salary</option>
@@ -77,7 +77,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <input type="text" class="form-control" id="amount" name="amount" data-mask required>
+                     <input type="text" class="form-control" id="amount" name="amount" data-mask >
                   </div>
                   <!-- /.input group -->
                </div>
@@ -89,7 +89,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-user"></i>
                      </div>
-                     <input type="text" class="form-control" id="name" name="name" data-mask placeholder=" User Name" required>
+                     <input type="text" class="form-control" id="name" name="name" data-mask placeholder=" User Name" >
 
                      </div>
                   <!-- /.input group -->
@@ -102,7 +102,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                      </div>
-                     <input type="text" class="form-control" id="phone" name="phone" required>
+                     <input type="text" class="form-control" id="phone" name="phone" >
                   </div>
                   <!-- /.input group -->
                </div>
@@ -113,7 +113,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-laptop"></i>
                      </div>
-                     <select class="form-control select2 accordion--form__text required" id="paymentmode" name="payment_method"  style="width: 100%;" required>
+                     <select class="form-control select2 accordion--form__text required" id="paymentmode" name="payment_method"  style="width: 100%;">
                         <option selected="selected">Select </option>
                         <option value="cod">COD</option>
                         <option value="paypal">Paypal</option>
@@ -128,7 +128,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                      </div>
-                     <input type="date" class="form-control" id="date" name="date" required>
+                     <input type="date" class="form-control" id="date" name="date" >
                   </div>
                   <!-- /.input group -->
                </div>
@@ -139,7 +139,7 @@
                   <div class="input-group-addon">
                      <i class="fa fa-laptop"></i>
                   </div>
-                  <input type="text" class="form-control" id="comments" name="comments" required>
+                  <input type="text" class="form-control" id="comments" name="comments">
                </div>
                <!-- /.input group -->
             </div>

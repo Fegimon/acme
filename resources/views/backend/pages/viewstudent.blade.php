@@ -1,5 +1,10 @@
 @extends('backend.default')
 @section('content')
+<style>
+h4{
+  color:red;
+}
+</style>
 <section class="content">
 
  <section class="invoice">
@@ -16,43 +21,79 @@
       <!-- info row -->
       <div class="row invoice-info">
         <div class="col-sm-4 invoice-col">
+        <h4><b>Student Details</b></h4>
         <strong> First Name</strong><br><br>
-        <strong> Last Name</strong><br><br>
+        <!-- <strong> Last Name</strong><br><br> -->
         <strong> Date Of Birth</strong><br><br>
         <strong> Email</strong><br><br>
         <strong>Gender</strong><br><br>
         <strong> Age</strong><br><br>
-        <strong> Blood Group</strong><br><br>
-        <strong>Religion</strong><br><br>
+        <strong> Student School</strong><br><br>
+        <strong> Student Class</strong><br><br>
+        <strong> Student Syllabus</strong><br><br>
+
+        <h4><b>Admission Details</b></h4>
+
         <strong> Admission Number</strong><br><br>
         <strong> Admission Date</strong><br><br>
         <strong> Date Of Joining</strong><br><br>
+
+         <h4><b>Course Details</b></h4>
+
+         <strong> Course Name</strong><br><br>
+         <strong> Course Price</strong><br><br>
+         <strong> Discount</strong><br><br>
+         <strong> Payment Mode</strong><br><br>
+         <strong> Payment Description</strong><br><br>
+         <strong> Course Batch</strong><br><br>
+        
+
+        <h4><b>Personal Details</b></h4>
+
         <strong> Father Name</strong><br><br>
         <strong>Mother Name</strong><br><br>
         <strong> Father Occupation</strong><br><br>
+        <strong> Mother Occupation</strong><br><br>
         <strong> Father Mobile</strong><br><br>
+        <strong> Mother Mobile</strong><br><br>
         <strong>Address</strong><br><br>
+        <strong>Zip Code</strong><br><br>
         <strong>City</strong><br><br>
+        <strong>State</strong><br><br>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
+        <br> <br>
         {{ $studentrs->firstname}}   <br><br>
-        {{ $studentrs->lastname}}   <br><br>
         {{ $studentrs->dob}}   <br><br>
         {{ $studentrs->email}}   <br><br>
         {{ $studentrs->gender}}   <br><br>
         {{ $studentrs->age}}   <br><br>
-        {{ $studentrs->bloodgroup}}   <br><br>
-        {{ $studentrs->religion}}   <br><br>
+        {{$studentrs->student_school}}  <br><br>
+        {{$studentrs->student_class}}   <br><br>
+        {{$studentrs->student_syllabus}}   <br><br>
+        <br> <br>
         {{ $studentrs->admission_no}}   <br><br>
         {{ $studentrs->admission_date}}   <br><br>
         {{ $studentrs->doj}}   <br><br>
+        <br> <br>
+        {{ $coursers->course_name}}   <br><br>
+        {{ $coursers->course_price}}   <br><br>
+        {{ $coursers->discount}}   <br><br>
+        {{ $coursers->payment_mode}}   <br><br>
+        {{ $coursers->payment_desc}}   <br><br>
+        {{ $coursers->batch_name}}->{{ $coursers->start_time}}-{{ $coursers->end_time}}  <br><br>
+         <br> <br>
         {{ $studentrs->father_name}}   <br><br>
         {{ $studentrs->mother_name}}   <br><br>
         {{ $studentrs->occupation}}   <br><br>
+        {{ $studentrs->mother_occupation}}   <br><br>
         {{ $studentrs->father_mobile}}   <br><br>
+        {{ $studentrs->mother_mobile}}   <br><br>
         {{ $studentrs->address}}   <br><br>
+        {{ $studentrs->zip_code}}   <br><br>
         {{ $studentrs->city}}   <br><br>
+        {{ $studentrs->state}}   <br><br>
 
         </div>
         <!-- /.col -->

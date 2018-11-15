@@ -1,5 +1,10 @@
 @extends('backend.default')
 @section('content')
+<style>
+h4{
+  color:red;
+}
+</style>
 <section class="content">
 <!-- SELECT2 EXAMPLE -->
 <div class="box box-default">
@@ -7,24 +12,24 @@
    <!-- /.box-header -->
    <div class="box-body">
       <div class="row">
-      <form action="{{url('admin/addstudent')}}" method="post" id="addstudent" enctype="multipart/form-data">
+      <form action="{{url('admin/editstudent')}}" method="post" id="addstudent" enctype="multipart/form-data">
                     {{ csrf_field() }}
          <div class="container">
          <div class="tab">
          <input type="hidden" name="id" class="form-control"  value="{{$studentrs->id}}" />
-      <h4 >Edit Student Details</h4>
+      <h4><b>Edit Student Details</b></h4>
       <br>
       <div class="row">
          <div class="col-sm-2 col-lg-4">
             <div class="form-group ">
-               <label class="control-label">First Name</label>
+               <label class="control-label">Name</label>
                <input type="text" name="firstname" class="form-control" value="{{$studentrs->firstname}}"  required pattern="[a-zA-Z]{0,30}" title="FirstName should only contain letters" />
             </div>
          </div>
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
-               <label class="control-label">Last Name</label>
-               <input type="text" name="lastname" class="form-control" value="{{$studentrs->lastname}}"  required pattern="[a-zA-Z]{0,30}" title="Lastname should only contain letters"/>
+               <label class="control-label">Email</label>
+               <input type="text" name="email" class="form-control" value="{{$studentrs->email}}" title="Lastname should only contain letters"/>
             </div>
          </div>
       </div>
@@ -37,8 +42,8 @@
          </div>
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
-               <label class="control-label">Email</label>
-               <input type="text" name="email" class="form-control" value="{{$studentrs->email}}" title="Lastname should only contain letters"/>
+            <label class="control-label">Age</label>
+               <input type="text" class="form-control"  name=" age" value="{{$studentrs->age}}" maxlength="3" pattern="[0-9]{0,3}" title="Age should only contain numbers" />
             </div>
          </div>
       </div>
@@ -55,28 +60,23 @@
          </div>
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
-               <label class="control-label">Age</label>
-               <input type="text" class="form-control"  name=" age" value="{{$studentrs->age}}" maxlength="3" pattern="[0-9]{0,3}" title="Age should only contain numbers" />
+               <label class="control-label">Student School</label>
+               <input type="text" class="form-control"  name=" student_school" value="{{$studentrs->student_school}}" maxlength="3" pattern="[0-9]{0,3}" title="Age should only contain numbers" />
             </div>
          </div>
       </div>
       <div class="row">
          <div class="col-sm-2 col-lg-4">
             <div class="form-group">
-               <label class="control-label">Blood Group</label>
-               <input type="text" class="form-control" name=" bloodgroup"  value="{{$studentrs->bloodgroup}}" required  />
+               <label class="control-label">Student Class</label>
+               <input type="text" class="form-control" name=" student_class"  value="{{$studentrs->student_class}}" required  />
             </div>
          </div>
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
-               <label class="control-label">Religion</label><br>
-               <select name="religion" class="form-control"  value="{{$studentrs->religion}}" >
-               <option value="<?php echo $studentrs->religion;?>" <?php echo ($studentrs->religion) ? ' selected="selected"' : '';?>><?php echo $studentrs->religion;?></option>
+               <label class="control-label">Student Syllabus</label><br>
+               <input type="text" class="form-control" name=" student_syllabus"  value="{{$studentrs->student_syllabus}}" required  />
 
-                  <option value="hindu">Hindu</option>
-                  <option value="muslem">Muslem</option>
-                  <option value="christian">Christian</option>
-               </select>
             </div>
          </div>
       </div>
@@ -98,13 +98,13 @@
       </div>
    </div>
    <div class="tab">
-      <h4>Addmission Detail</h4>
+      <h4><b>Addmission Detail</b></h4>
       <br>
       <div class="row">
          <div class="col-sm-2 col-lg-4">
             <div class="form-group ">
                <label class="control-label">Admission Number</label>
-               <input type="text" name="admission_no" class="form-control" value="{{$studentrs->admission_no}}"  title="FirstName should only contain letters" />
+               <input type="text" name="admission_no" class="form-control" value="{{$studentrs->admission_no}}"  readonly />
             </div>
          </div>
          <div class="col-md-2 col-lg-4">
@@ -124,20 +124,78 @@
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
                <label class="control-label">Course</label>
-               <select class="form-control select2 accordion--form__text required" value="{{$studentrs->course}}"  name="course" style="width: 100%;">
-                  <option selected="selected">Select Course</option>
-                  <option value="<?php echo $studentrs->course;?>" <?php echo ($studentrs->course) ? ' selected="selected"' : '';?>><?php echo $studentrs->course;?></option>
-
-                  <option value="java">Java</option>
-                  <option value="dotnet">Dotnet</option>
-                  <option value="php">PHP</option>
-                </select>             
+               <select name="course[]" id="multiple-select" multiple="" class="form-control" >
+               <option value="<?php echo $studentrs->course;?>" <?php echo ($studentrs->course) ? ' selected="selected"' : '';?>><?php echo $coursedetail->course_name;?></option>
+                  @foreach ($course as $val)
+                  <option value="{{$val->id}}">{{$val->coursename}}</option>
+                  @endforeach
+               </select>
+                           
                 </div>
          </div>
       </div>
    </div>
    <div class="tab">
-      <h4 >Personel Details</h4>
+      <h4><b>Course Detail</b></h4>
+      <br>
+      <div class="row">
+         <div class="col-sm-2 col-lg-4">
+            <div class="form-group ">
+               <label class="control-label">Course Name</label>
+               <input type="text" name="course_name" class="form-control" value="{{$coursedetail->course_name}}"  readonly />
+            </div>
+         </div>
+         <div class="col-md-2 col-lg-4">
+            <div class="form-group">
+               <label class="control-label">Course Price</label>
+               <input type="text" name="course_price" class="form-control" value="{{$coursedetail->course_price}}"  title="Lastname should only contain letters"/>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-2 col-lg-4">
+            <div class="form-group">
+               <label class="control-label">Discount</label>
+               <input type="text" name="discount" class="form-control"  value="{{$coursedetail->discount}}"   title="FirstName should only contain letters" />
+            </div>
+         </div>
+         <div class="col-md-2 col-lg-4">
+            <div class="form-group">
+               <label class="control-label">Course Batch</label>
+               <select class="form-control "  name="course_batch" style="width: 100%;">
+                  <option selected="selected">Select Course</option>
+                  <option value="<?php echo $coursedetail->course_batch;?>" <?php echo ($coursedetail->course_batch) ? ' selected="selected"' : '';?>><?php echo $coursedetail->batch_name;?></option>
+                  @foreach ($batch as $val)
+                   <option value="{{$val->id}}">{{$val->batch_name}}->{{$val->start_time}} - {{$val->end_time}}</option>
+                  @endforeach
+                </select>             
+                </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-2 col-lg-4">
+            <div class="form-group">
+            <label class="control-label">Payment Mode</label>
+               <select class="form-control " value="{{$coursedetail->payment_mode}}"  name="payment_mode" style="width: 100%;">
+                  <option selected="selected">Select Course</option>
+                  <option value="<?php echo $coursedetail->payment_mode;?>" <?php echo ($coursedetail->payment_mode) ? ' selected="selected"' : '';?>><?php echo $coursedetail->payment_mode;?></option>
+                  <option value="cod">COD</option>
+                  <option value="paypal">Paypal</option>
+                  <option value="netbanking">Netbanking</option>
+                </select>  
+            </div>
+         </div>
+         <div class="col-md-2 col-lg-4">
+            <div class="form-group">
+               <label class="control-label">Payment Description</label>
+               <input type="text" name="payment_desc" class="form-control"  value="{{$coursedetail->payment_desc}}"   title="FirstName should only contain letters" />
+            
+                </div>
+         </div>
+      </div>
+   </div>
+   <div class="tab">
+      <h4 ><b>Personel Details</b></h4>
       <br>
       <div class="row">
          <div class="col-sm-2 col-lg-4">
@@ -160,10 +218,24 @@
                <input type="text" name="occupation" class="form-control"  value="{{$studentrs->occupation}}"  required pattern="[a-zA-Z]{0,30}" title="FirstName should only contain letters" />
             </div>
          </div>
-         <div class="col-md-2 col-lg-4">
+         <div class="col-sm-2 col-lg-4">
+            <div class="form-group">
+               <label class="control-label">Mother Occupation</label>
+               <input type="text" name="mother_occupation" class="form-control"  value="{{$studentrs->mother_occupation}}"  required pattern="[a-zA-Z]{0,30}" title="FirstName should only contain letters" />
+            </div>
+         </div>
+     </div>
+     <div class="row">
+     <div class="col-md-2 col-lg-4">
             <div class="form-group">
                <label class="control-label">Father Mobile</label>
                <input type="text" name="father_mobile" class="form-control" value="{{$studentrs->father_mobile}}"   title="Lastname should only contain letters"/>
+            </div>
+         </div>
+         <div class="col-md-2 col-lg-4">
+            <div class="form-group">
+               <label class="control-label">Mother Mobile</label>
+               <input type="text" name="mother_mobile" class="form-control" value="{{$studentrs->mother_mobile}}"   title="Lastname should only contain letters"/>
             </div>
          </div>
       </div>
@@ -176,8 +248,22 @@
          </div>
          <div class="col-md-2 col-lg-4">
             <div class="form-group">
-               <label class="control-label">City</label>
-               <input type="text" class="form-control"  name=" city" value="{{$studentrs->city}}"   title="Age should only contain numbers" />
+               <label class="control-label">Zip Code</label>
+               <input type="text" class="form-control"  name=" zip_code" value="{{$studentrs->zip_code}}"   title="Age should only contain numbers" />
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-2 col-lg-4">
+            <div class="form-group">
+               <label for="gender">City</label><br>
+               <input type="text" name="city" class="form-control" value="{{$studentrs->city}}"  required pattern="[a-zA-Z]{0,30}" title="Lastname should only contain letters"/>
+            </div>
+         </div>
+         <div class="col-md-2 col-lg-4">
+            <div class="form-group">
+               <label class="control-label">State</label>
+               <input type="text" class="form-control"  name=" state" value="{{$studentrs->state}}"   title="Age should only contain numbers" />
             </div>
          </div>
       </div>
@@ -199,7 +285,7 @@ $(document).on('click', '#btnSubmit', function () {
     //alert('click');
        //var data  = $('#addstudent').serializeArray();
        var data = new FormData($('#addstudent')[0]);
-       var url = "{{url('admin/addstudent')}}";
+       var url = "{{url('admin/editstudent')}}";
      $.ajax({
            type:'POST',
            url:url,

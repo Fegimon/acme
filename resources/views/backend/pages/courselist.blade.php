@@ -19,12 +19,11 @@
                 <th>S.No</th>
                            <th>coursecode</th>
                            <th>coursename</th>
-                           <th>description</th>
                            <th>category</th>
                            <th>startdate</th>
                            <th>enddate</th>
-                
                            <th>View</th>
+                           <th>Schedule</th>
                            <th>Edit </th>
                            <th>Delete</th>
                 </tr>
@@ -38,15 +37,12 @@
                         <tr>
                            <td>{{++$i}}</td>
                            <td>{{ $val->coursecode}}</td>
-                        
                            <td>{{ $val->coursename}}</td>
-                           <td>{{ $val->description}}</td>
                            <td>{{ $val->category}}</td>
-
                            <td>{{ $val->startdate}}</td>
                            <td>{{ $val->enddate}}</td>
-                        
                            <td><a href="{{ url('backend/viewcourse/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>View</span></a></td>
+                           <td><a href="{{ url('backend/addschedule/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Add</span></a></td>
                            <td><a href="{{ url('backend/editcourse/'.$val->id) }}"  class="btn btn-gradient-ibiza waves-effect waves-light m-1 .btn-small" > <i class="fa fa-edit"></i> <span>Edit</span></a></td>
                            <td><button type="button" class="btn btn-gradient-forest waves-effect waves-light m-1 delete" data-id="{{ $val->id }}" > <i class="fa fa fa-trash-o"></i> <span>Delete</span> </button></td>
                         </tr>

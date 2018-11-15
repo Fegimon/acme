@@ -45,7 +45,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-laptop"></i>
                      </div>
-                     <select class="form-control select2 " id="category" name="category"  style="width: 100%;" >
+                     <select class="form-control " id="category" name="category"  style="width: 100%;" >
                         <option selected="selected">Select </option>
                         @foreach ($category as $val)
                         <option value="{{$val->category}}">{{$val->category}}</option>
@@ -54,19 +54,7 @@
                   </div>
                   <!-- /.input group -->
                </div>
-               <!-- /.form group -->
-               <!-- phone mask -->
-               <!-- <div class="form-group">
-                  <label>Sub Category</label>
-                  <div class="input-group">
-                     <div class="input-group-addon"> -->
-                        <!-- <i class="fa fa-phone"></i> -->
-                     <!-- </div>
-                     <input type="text" name="sub_category" class="form-control accordion--form__text required" required /> -->
-                  <!-- /.input group -->
-               <!-- </div> -->
-               <!-- /.form group -->
-               <!-- IP mask -->
+               
                <div class="form-group">
                   <label>Start Date:</label>
                   <div class="input-group">
