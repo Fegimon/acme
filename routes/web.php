@@ -53,6 +53,7 @@ Route::get('createstaff','HomeController@createstaff');
 Route::get('createstudent','HomeController@createstudent');
 Route::post('addstaff','AdmissionController@addstaff');
 Route::post('addstudent','AdmissionController@addstudent');
+Route::post('editstudent','AdmissionController@editstudent');
 Route::get('editstudent/{id}','HomeController@editstudent');
 Route::get('deletestudent/{id}','HomeController@deletestudent');
 Route::get('viewstudent/{id}','HomeController@viewstudent');
@@ -127,9 +128,25 @@ Route::group(['prefix' => 'backend'], function(){
     Route::get('editcoursecategory/{id}','MainController@editcoursecategory');
     Route::get('deletcoursecategory/{id}','MainController@deletcoursecategory');
 
+    Route::get('addschedule/{id}','MainController@addschedule');
+    Route::post('addbatch','CourseController@addbatch');
+    Route::get('coursedetails/{id}','MainController@coursedetails');
+    Route::post('addcoursedetails','CourseController@addcoursedetails');
+
+
+
+
+
+
+    Route::get('email','MainController@email');
+    Route::post('postEmail','MainController@postEmail');
+
+
+    
+
+
 
 });
 
 Route::get('categoryselect/{id}','MainController@categoryselect');
-
 
