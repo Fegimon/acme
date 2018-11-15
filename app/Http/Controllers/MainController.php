@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Response;
+use Mail;
+use Session;
 
 class MainController extends Controller
 {
@@ -36,14 +38,21 @@ class MainController extends Controller
     public function studentdetails()
     {
         $studentrs = DB::table('acme-student')->where('status',1)->get();
-       // dd($studentrs);
+        //dd($studentrs);
         return view('backend.pages.studentdetails')->with('studentrs',$studentrs);
     }
     public function editstudent($id)
     {
         $studentrs = DB::table('acme-student')->where('id',$id)->first();
-        //dd($studentrs);
-        return view('backend.pages.editstudent')->with('studentrs',$studentrs);
+        $coursers = DB::table('acme-course')->get();
+        $coursedetail = DB::table('student_course')
+                    ->select('student_course.*','batch_schedule.batch_name','batch_schedule.start_time','batch_schedule.end_time')
+                    ->join('batch_schedule','batch_schedule.id','=','student_course.course_batch')
+                    ->where('student_course.student_id',$id)
+                    ->first();
+       $batch=DB::table('student_lines')->where('student_id',$id)->get();
+        return view('backend.pages.editstudent')->with('studentrs',$studentrs)->with('course',$coursers)
+               ->with('coursedetail',$coursedetail)->with('batch',$batch);
     }
 
     public function deletestudent($id)
@@ -68,8 +77,13 @@ class MainController extends Controller
     {
         //dd($id);
         $studentrs = DB::table('acme-student')->where('id',$id)->first();
-        //dd($studentrs);
-        return view('backend.pages.viewstudent')->with('studentrs',$studentrs);
+        $coursers = DB::table('student_course')
+                    ->select('student_course.*','batch_schedule.batch_name','batch_schedule.start_time','batch_schedule.end_time')
+                    ->join('batch_schedule','batch_schedule.id','=','student_course.course_batch')
+                    ->where('student_course.student_id',$id)
+                    ->first();
+        //dd($coursers);
+        return view('backend.pages.viewstudent')->with('studentrs',$studentrs)->with('coursers',$coursers);
     }
     public function addcourse()
     {
@@ -259,4 +273,49 @@ class MainController extends Controller
         return redirect('backend/addcoursecategory ');
        
     }
+
+    public function email()
+    {
+       
+        return view('backend.pages.email');
+    }
+    public function postEmail(Request $request)
+    {
+        //dd($request->all());
+       $data=[
+           'email'=>$request->email,
+           'subject'=>$request->subject,
+           'message'=>$request->message,
+       ];
+       Mail::send('emails.name',$data,function($message) use ($data){
+       $message->from('anusrimariyappan@gmail.com','Test Email');
+       $message->to($data['email']);
+       $message->subject($data['subject']);
+       });
+        $data = Session::flash('success', 'Your email has been sent successfully!');
+        return redirect('backend/email')->with(['data', $data], ['success', $data]);
+     
+        
+    }
+
+    public function addschedule()
+    {
+       
+        return view('backend.pages.addschedule');
+    }
+    public function coursedetails($id)
+    {
+       $course = DB::table('student_lines')->where('student_id',$id)->get();
+       //dd($course);
+       $c_name=array();
+       foreach ($course as $key => $value)
+       {
+        $namecourse=$value->course_name;
+        $c_name[]=$namecourse;
+       }
+      $coursename= implode(",",$c_name);
+     // dd($coursename);
+        return view('backend.pages.coursedetails')->with('course',$course)->with('coursename',$coursename);
+    }
+
 }

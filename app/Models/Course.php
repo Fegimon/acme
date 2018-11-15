@@ -38,5 +38,50 @@ class Course extends Model
             return $result;
         }
     }
+    public function savebatchschedule($input) {        
+        $query = DB::table('batch_schedule');
+        if ($input['id']) {
     
+            $input['updated_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->where([['id', $input['id']]])->update($input);
+            return $input['id'];
+            
+        } else {
+        
+            $input['created_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->insertGetId($input);
+            return $result;
+        }
+    }
+    public function savecoursedetails($input) {        
+        $query = DB::table('student_course');
+        if ($input['id']) {
+    
+            $input['updated_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->where([['id', $input['id']]])->update($input);
+            return $input['id'];
+            
+        } else {
+        
+            $input['created_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->insertGetId($input);
+            return $result;
+        }
+    }
+    public function courseLines($inputItem) {
+
+        try {
+            if ($inputItem['id']) {
+                $result = DB::table('student_lines')->where('id', $inputItem['id'])->update($inputItem);
+                return $inputItem['id'];
+            } else {
+                $result = DB::table('student_lines')->insertGetId($inputItem);
+                return $result;
+            }
+        } catch (QueryException $e) {
+
+            return false;
+        }
+    }
+
 }

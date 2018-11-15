@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class HomeController extends Controller
 {
@@ -275,5 +277,14 @@ class HomeController extends Controller
         //dd($studentrs);
         return view('admin.pages.editpayment')->with('paymentrs',$paymentrs);
     }
+
+
+public function mail()
+{
+   $name = 'Krunal';
+   Mail::to('anusrimariyappan@gmail.com')->send(new SendMailable($name));
+   
+   return 'Email was sent';
+}
 
 }
