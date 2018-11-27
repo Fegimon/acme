@@ -20,3 +20,14 @@ Route::post('addstudent', [
     'uses'=>'AdmissionController@addstudent',
     'as'=>'addstudent'
 ]);
+
+Route::post('login', 'api\ApiController@login');
+Route::post('register', 'api\ApiController@register');
+
+Route::post('addenquiry', 'api\ApiController@addenquiry');
+Route::get('getenquirylist', 'api\ApiController@getenquirylist');
+Route::get('getenquiry/{id}', 'api\ApiController@getenquiry');
+Route::get('getcourse', 'api\ApiController@getcourse');
+Route::post('addstudent', 'api\ApiController@addstudent');
+
+

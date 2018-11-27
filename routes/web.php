@@ -130,8 +130,17 @@ Route::group(['prefix' => 'backend'], function(){
 
     Route::get('addschedule/{id}','MainController@addschedule');
     Route::post('addbatch','CourseController@addbatch');
+    Route::get('deletschedule/{id}','MainController@deletschedule');
+
     Route::get('coursedetails/{id}','MainController@coursedetails');
+    Route::get('editschedule/{id}','MainController@editschedule');
     Route::post('addcoursedetails','CourseController@addcoursedetails');
+
+    Route::get('studentcourse','MainController@studentcourse');
+    Route::get('editstudentcourse/{id}','MainController@editstudentcourse');
+    Route::get('viewstudentcourse/{id}','MainController@viewstudentcourse');
+    Route::get('deletestudentcourse/{id}','MainController@deletestudentcourse');
+    Route::post('editstudentcourse','CourseController@editstudentcourse');
 
 
 
