@@ -125,8 +125,7 @@ class AdmissionController extends Controller
            
             $input = [
                 'id' => isset($data['id']) ? $data['id'] : false,
-                'firstname' => isset($data['firstname']) ? $data['firstname'] : '',
-                'lastname' => isset($data['lastname']) ? $data['lastname'] : '',
+                'name' => isset($data['name']) ? $data['name'] : '',
                 'dob' => isset($data['dob']) ? $data['dob'] : '',
                 'email' => isset($data['email']) ? $data['email'] : '',
                 'gender' => isset($data['gender']) ? $data['gender'] : '',
@@ -172,7 +171,7 @@ class AdmissionController extends Controller
             }
 
             $rules = array(
-                'firstname' => 'required',
+                'name' => 'required',
                
                 'dob' => 'required',
                 //'email' => 'required',
@@ -189,8 +188,7 @@ class AdmissionController extends Controller
                if($imageName!=''){
                 $studentInput = array(
                     'id' => $input['id'],
-                    'firstname' => $input['firstname'],
-                    'lastname' => $input['lastname'],
+                    'firstname' => $input['name'],
                     'dob' => $input['dob'],
                     'email' => $input['email'],
                     'gender' => $input['gender'],
@@ -221,8 +219,7 @@ class AdmissionController extends Controller
             }else{
                 $studentInput = array(
                     'id' => $input['id'],
-                    'firstname' => $input['firstname'],
-                    'lastname' => $input['lastname'],
+                    'firstname' => $input['name'],
                     'dob' => $input['dob'],
                     'email' => $input['email'],
                     'gender' => $input['gender'],
@@ -251,8 +248,9 @@ class AdmissionController extends Controller
                     'status'=>1,                   
                 );
             }
-                $studentid = $this->admission->saveStudent($studentInput);
+                //$studentid = $this->admission->saveStudent($studentInput);
                 $course = $data['course'];
+                dd($course);
                 $temp = array();
                 if ($course) {
 
@@ -311,14 +309,13 @@ class AdmissionController extends Controller
     public function editstudent(Request $request)
     {
         $data=$request->all();
-         //print_r($data);die;
+        
 
         if ($data != null) {
 
             $input = [
                 'id' => isset($data['id']) ? $data['id'] : false,
-                'firstname' => isset($data['firstname']) ? $data['firstname'] : '',
-                'lastname' => isset($data['lastname']) ? $data['lastname'] : '',
+                'name' => isset($data['name']) ? $data['name'] : '',
                 'dob' => isset($data['dob']) ? $data['dob'] : '',
                 'email' => isset($data['email']) ? $data['email'] : '',
                 'gender' => isset($data['gender']) ? $data['gender'] : '',
@@ -341,12 +338,12 @@ class AdmissionController extends Controller
                 'city' => isset($data['city']) ? $data['city'] : '',
                 'state' => isset($data['state']) ? $data['state'] : '',
                 
-                'course_name' => isset($data['course_name']) ? $data['course_name'] : '',  
-                'course_price' => isset($data['course_price']) ? $data['course_price'] : '',
-                'payment_mode' => isset($data['payment_mode']) ? $data['payment_mode'] : '', 
-                'course_batch' => isset($data['course_batch']) ? $data['course_batch'] : '',  
-                'discount' => isset($data['discount']) ? $data['discount'] : '',  
-                'payment_desc' => isset($data['payment_desc']) ? $data['payment_desc'] : '',
+                // 'course_name' => isset($data['course_name']) ? $data['course_name'] : '',  
+                // 'course_price' => isset($data['course_price']) ? $data['course_price'] : '',
+                // 'payment_mode' => isset($data['payment_mode']) ? $data['payment_mode'] : '', 
+                // 'course_batch' => isset($data['course_batch']) ? $data['course_batch'] : '',  
+                // 'discount' => isset($data['discount']) ? $data['discount'] : '',  
+                // 'payment_desc' => isset($data['payment_desc']) ? $data['payment_desc'] : '',
                
             ];
             //print_r($input);die;
@@ -388,8 +385,7 @@ class AdmissionController extends Controller
                if($imageName!=''){
                 $studentInput = array(
                     'id' => $input['id'],
-                    'firstname' => $input['firstname'],
-                    'lastname' => $input['lastname'],
+                    'firstname' => $input['name'],
                     'dob' => $input['dob'],
                     'email' => $input['email'],
                     'gender' => $input['gender'],
@@ -401,7 +397,7 @@ class AdmissionController extends Controller
                    // 'admission_no' => $input['admission_no'],
                     'admission_date' => $input['admission_date'],
                     'doj'=>$input['doj'],
-                    'course' => $courseselect,
+                   // 'course' => $courseselect,
 
 
                     'father_name'=>$input['father_name'],
@@ -419,8 +415,7 @@ class AdmissionController extends Controller
             }else{
                 $studentInput = array(
                     'id' => $input['id'],
-                    'firstname' => $input['firstname'],
-                    'lastname' => $input['lastname'],
+                    'firstname' => $input['name'],
                     'dob' => $input['dob'],
                     'email' => $input['email'],
                     'gender' => $input['gender'],
@@ -433,7 +428,7 @@ class AdmissionController extends Controller
                     //'admission_no' => $input['admission_no'],
                     'admission_date' => $input['admission_date'],
                     'doj'=>$input['doj'],
-                    'course' => $courseselect,
+                   // 'course' => $courseselect,
 
 
                     'father_name'=>$input['father_name'],
@@ -449,9 +444,10 @@ class AdmissionController extends Controller
                     'status'=>1,                   
                 );
             }
-            $studentid = $this->admission->saveStudent($studentInput);
+            //$studentid = $this->admission->saveStudent($studentInput);
 
             $course = $data['course'];
+           print_r($course);die;
             $temp = array();
             if ($course) {
 
@@ -476,21 +472,13 @@ class AdmissionController extends Controller
                     $param['end_time'] = $end_time;
                    
                   
-                    $this->course->courseLines($param);
+                    
                 }
+                //dd($param);
+                $this->course->courseLines($param);
             }
 
-              $courseInput = array(
-                //'id' => $input['id'],
-                'course_name' => $coursename,
-                'course_price' => $input['course_price'],
-                'payment_mode' => $input['payment_mode'],
-                'course_batch'=>$input['course_batch'],
-                'discount' => $input['discount'],
-                'payment_desc' => $input['payment_desc'],
-              );
-                //dd($courseInput);
-                $updatecourse = DB::table('student_course')->where('student_id',$input['id'])->update($courseInput);
+             
                
                if ($studentid) {
                     return Response::json([
@@ -535,8 +523,6 @@ class AdmissionController extends Controller
                 'address' => isset($data['address']) ? $data['address'] : '',
                 'reference' => isset($data['reference']) ? $data['reference'] : '',
                 'comments' => isset($data['comments']) ? $data['comments'] : '',
-                'otherref' => isset($data['otherref']) ? $data['otherref'] : '',
-                'otherenq' => isset($data['otherenq']) ? $data['otherenq'] : '',
                 'student_name' => isset($data['student_name']) ? $data['student_name'] : '',
                 'student_class' => isset($data['student_class']) ? $data['student_class'] : '',
                 'student_syllabus' => isset($data['student_syllabus']) ? $data['student_syllabus'] : '',
@@ -547,7 +533,7 @@ class AdmissionController extends Controller
             ];
             //dd($input);
             $course =  json_encode($input['course']);
-            $courseenq = str_replace( array( '\'', '"', '[' , ']', '"', '>' ), ' ', $course);
+            $courseenq = str_replace( array( '\'', '"', '[' , ']', '"', '>' ), '', $course);
            // dd($title);
             $rules = array(
                 'name' => 'required',
@@ -577,8 +563,6 @@ class AdmissionController extends Controller
                     'address' => $input['address'],
                     'reference' => $input['reference'],
                     'comments' => $input['comments'],
-                    'otherref'=>$input['otherref'],
-                    'otherenq' => $input['otherenq'],
                     'student_name' => $input['student_name'],
                     'student_class' => $input['student_class'],
                     'student_syllabus'=>$input['student_syllabus'],

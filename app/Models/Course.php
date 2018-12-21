@@ -83,5 +83,34 @@ class Course extends Model
             return false;
         }
     }
-
+    public function savepdfcat($input) {        
+        $query = DB::table('acme-pdfcatgeory');
+        if ($input['id']) {
+    
+            $input['updated_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->where([['id', $input['id']]])->update($input);
+            return $input['id'];
+            
+        } else {
+        
+            $input['created_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->insertGetId($input);
+            return $result;
+        }
+    }
+    public function savepdf($input) {        
+        $query = DB::table('acme-pdf');
+        if ($input['id']) {
+    
+            $input['updated_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->where([['id', $input['id']]])->update($input);
+            return $input['id'];
+            
+        } else {
+        
+            $input['created_at'] = Carbon::now()->toDateTimeString();
+            $result = $query->insertGetId($input);
+            return $result;
+        }
+    }
 }

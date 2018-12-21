@@ -20,7 +20,10 @@ class AdminController extends Controller
     {
         return view('auth.login');
     }
-
+    public function showRegForm()
+    {
+        return view('auth.reg');
+    }
    
  public function login()
         {
@@ -47,13 +50,8 @@ class AdminController extends Controller
 
             if (Auth::attempt($userdata)) {
                 //dd($verifyuser);
-                    if($verifyuser->role_id==2){
-                            return redirect('staff/dashboard');
-                        }
-                        if($verifyuser->role_id==1){
+                   
                             return redirect('backend/dashboard');
-                        }
-
             } else {        
 
                 return Redirect::to('login');

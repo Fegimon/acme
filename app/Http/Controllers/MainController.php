@@ -46,13 +46,16 @@ class MainController extends Controller
         $studentrs = DB::table('acme-student')->where('id',$id)->first();
         $coursers = DB::table('acme-course')->get();
         $coursedetail = DB::table('student_course')
-                    ->select('student_course.*','batch_schedule.batch_name','batch_schedule.start_time','batch_schedule.end_time')
+                    ->select('student_course.*','batch_schedule.batch_name','batch_schedule.start_time',
+                             'batch_schedule.end_time','acme-course.coursename')
                     ->join('batch_schedule','batch_schedule.id','=','student_course.course_batch')
+                    ->join('acme-course','acme-course.id','=','student_course.course_id')
                     ->where('student_course.student_id',$id)
                     ->first();
-       $batch=DB::table('student_lines')->where('student_id',$id)->get();
+               
+       
         return view('backend.pages.editstudent')->with('studentrs',$studentrs)->with('course',$coursers)
-               ->with('coursedetail',$coursedetail)->with('batch',$batch);
+               ->with('coursedetail',$coursedetail);
     }
 
     public function deletestudent($id)
@@ -77,11 +80,15 @@ class MainController extends Controller
     {
         //dd($id);
         $studentrs = DB::table('acme-student')->where('id',$id)->first();
+        // $coursers = DB::table('student_lines')->where('student_id',$id)->get();
         $coursers = DB::table('student_course')
-                    ->select('student_course.*','batch_schedule.batch_name','batch_schedule.start_time','batch_schedule.end_time')
+                    ->select('student_course.*','acme-course.coursename','batch_schedule.batch_name','batch_schedule.id as batchid',
+                            'batch_schedule.start_time','batch_schedule.end_time','acme-student.firstname as studentname')
+                    ->join('acme-course','acme-course.id','=','student_course.course_id')
                     ->join('batch_schedule','batch_schedule.id','=','student_course.course_batch')
+                    ->join('acme-student','acme-student.id','=','student_course.student_id')
                     ->where('student_course.student_id',$id)
-                    ->first();
+                    ->get();
         //dd($coursers);
         return view('backend.pages.viewstudent')->with('studentrs',$studentrs)->with('coursers',$coursers);
     }
@@ -138,7 +145,6 @@ class MainController extends Controller
     public function enquirylist()
     {
         $enquiryrs = DB::table('acme-enquiry')->where('status',1)->get();
-        //dd($coursers);
         return view('backend.pages.enquirylist')->with('enquiryrs',$enquiryrs);
     }
     public function viewenquiry($id)
@@ -300,22 +306,162 @@ class MainController extends Controller
 
     public function addschedule()
     {
+        $cid=request()->segment(3);
+        //dd($cid);
+        $course = DB::table('batch_schedule')
+                ->select('batch_schedule.*','acme-course.coursename')
+                ->join('acme-course','acme-course.id','=','batch_schedule.course_id')
+                ->where('course_id',$cid)
+                ->where('batch_schedule.status',1)
+                ->get();
+        //dd($course);
+        return view('backend.pages.addschedule')->with('course',$course);
+    }
+    public function editschedule($id)
+    {
+      //dd($id);
+        $course = DB::table('batch_schedule')
+                ->select('batch_schedule.*','acme-course.coursename')
+                ->join('acme-course','acme-course.id','=','batch_schedule.course_id')
+                ->where('batch_schedule.id',$id)
+                ->first();
+            //dd($course);
+        return Response::json([
+            'status' => 1,
+            'course' => $course
+        ]);
+    }
+    public function deletschedule($id)
+    {
+        //dd($id);
+        $course = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatecourse=DB::table('batch_schedule')->where('id', $id)->update($course); 
+        return Response::json([
+            'status' => 1,
+            'schedule' => $updatecourse
+        ]);
        
-        return view('backend.pages.addschedule');
     }
     public function coursedetails($id)
     {
        $course = DB::table('student_lines')->where('student_id',$id)->get();
        //dd($course);
-       $c_name=array();
+        $c_name=array();
+        $arr=array();
+        $batch=array();
        foreach ($course as $key => $value)
        {
+          
         $namecourse=$value->course_name;
-        $c_name[]=$namecourse;
+        $c_id=$value->course_id;
+        $batchrs=DB::table('batch_schedule')->where('course_id',$c_id)->first();
+        //dd($batchrs);
+        $c_name['course']=$namecourse;
+        $c_name['id']=$c_id;
+        $arr[]=$c_name;
+        $batch[]=$batchrs;
        }
+       //dd($batch);
       $coursename= implode(",",$c_name);
      // dd($coursename);
-        return view('backend.pages.coursedetails')->with('course',$course)->with('coursename',$coursename);
+        return view('backend.pages.coursedetails')->with('course',$course)->with('coursename',$coursename)
+              ->with('arr',$arr)->with('batch',$batch);
+    }
+    public function studentcourse()
+    {
+        $course = DB::table('student_course')
+                  ->select('student_course.*','acme-course.coursename','batch_schedule.batch_name',
+                           'batch_schedule.start_time','batch_schedule.end_time','acme-student.firstname as studentname')
+                  ->join('acme-course','acme-course.id','=','student_course.course_id')
+                  ->join('batch_schedule','batch_schedule.id','=','student_course.course_batch')
+                  ->join('acme-student','acme-student.id','=','student_course.student_id')
+                  ->where('student_course.status',1)
+                  ->get();
+                //dd($course);
+        return view('backend.pages.studentcourse')->with('coursers',$course);
+    }
+    public function editstudentcourse($id)
+    {
+        $course = DB::table('student_course')
+                  ->select('student_course.*','acme-course.coursename','batch_schedule.batch_name','batch_schedule.id as batchid',
+                           'batch_schedule.start_time','batch_schedule.end_time','acme-student.firstname as studentname')
+                  ->join('acme-course','acme-course.id','=','student_course.course_id')
+                  ->join('batch_schedule','batch_schedule.id','=','student_course.course_batch')
+                  ->join('acme-student','acme-student.id','=','student_course.student_id')
+                  ->where('student_course.id',$id)
+                  ->first();
+                  //dd($course);
+         $batch = DB::table('batch_schedule')->where('course_id',$id)->get();
+         //dd($batch);
+        return view('backend.pages.editstudentcourse')->with('coursers',$course)->with('batch',$batch);
+    }
+    public function viewstudentcourse($id)
+    {
+        $course = DB::table('student_course')
+                  ->select('student_course.*','acme-course.coursename','batch_schedule.batch_name','batch_schedule.id as batchid',
+                           'batch_schedule.start_time','batch_schedule.end_time','acme-student.firstname as studentname')
+                  ->join('acme-course','acme-course.id','=','student_course.course_id')
+                  ->join('batch_schedule','batch_schedule.id','=','student_course.course_batch')
+                  ->join('acme-student','acme-student.id','=','student_course.student_id')
+                  ->where('student_course.id',$id)
+                  ->first();
+                  //dd($course);
+         
+        return view('backend.pages.viewstudentcourse')->with('coursers',$course);
+    }
+    public function deletestudentcourse($id)
+    {
+        //dd($id);
+        $course = array(
+           
+            'status'=>0,
+            'updated_at' => date("Y-m-d H:i:s")
+        );
+        $updatecourse=DB::table('student_course')->where('id', $id)->update($course); 
+        return redirect('backend/studentcourse ');
+       
+    }
+    public function category()
+    {
+        $category = DB::table('acme-pdfcatgeory')->get();
+        return view('backend.pages.category')->with('category',$category);
     }
 
+    public function getcategory($id)
+    {
+        $images = DB::table('acme-pdfcatgeory')
+                  ->where('id',$id)->get();
+        //dd($images);
+        if($images){
+            return Response::json([
+                'status' => 1,
+                'images' => $images,
+                    ], 200);
+        }else{
+            return Response::json([
+                'status' => 0,
+                'message' => 'Not Selected'
+                    ], 400);
+        }
+    }
+    public function addpdfcategory()
+    {
+        $category = DB::table('acme-pdfcatgeory')->get();
+        return view('backend.pages.addpdfcategory')->with('category',$category);
+    }
+    public function addpdf()
+    {
+        $category = DB::table('acme-pdfcatgeory')->get();
+        return view('backend.pages.addpdf')->with('category',$category);
+    }
+    public function viewpdf($id)
+    {
+        $pdf = DB::table('acme-pdf')->where('id',$id)->first();
+        //dd($pdf);
+        return view('backend.pages.viewpdf')->with('pdf',$pdf);
+    }
 }
