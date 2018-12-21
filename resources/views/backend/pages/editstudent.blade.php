@@ -125,7 +125,7 @@ h4{
             <div class="form-group">
                <label class="control-label">Course</label>
                <select name="course[]" id="multiple-select" multiple="" class="form-control" >
-               <option value="<?php echo $studentrs->course;?>" <?php echo ($studentrs->course) ? ' selected="selected"' : '';?>><?php echo $coursedetail->course_name;?></option>
+               <option value="<?php echo $coursedetail->course_id;?>" <?php echo ($coursedetail->course_id) ? ' selected="selected"' : '';?>><?php echo $coursedetail->coursename;?></option>
                   @foreach ($course as $val)
                   <option value="{{$val->id}}">{{$val->coursename}}</option>
                   @endforeach
@@ -135,65 +135,7 @@ h4{
          </div>
       </div>
    </div>
-   <div class="tab">
-      <h4><b>Course Detail</b></h4>
-      <br>
-      <div class="row">
-         <div class="col-sm-2 col-lg-4">
-            <div class="form-group ">
-               <label class="control-label">Course Name</label>
-               <input type="text" name="course_name" class="form-control" value="{{$coursedetail->course_name}}"  readonly />
-            </div>
-         </div>
-         <div class="col-md-2 col-lg-4">
-            <div class="form-group">
-               <label class="control-label">Course Price</label>
-               <input type="text" name="course_price" class="form-control" value="{{$coursedetail->course_price}}"  title="Lastname should only contain letters"/>
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-sm-2 col-lg-4">
-            <div class="form-group">
-               <label class="control-label">Discount</label>
-               <input type="text" name="discount" class="form-control"  value="{{$coursedetail->discount}}"   title="FirstName should only contain letters" />
-            </div>
-         </div>
-         <div class="col-md-2 col-lg-4">
-            <div class="form-group">
-               <label class="control-label">Course Batch</label>
-               <select class="form-control "  name="course_batch" style="width: 100%;">
-                  <option selected="selected">Select Course</option>
-                  <option value="<?php echo $coursedetail->course_batch;?>" <?php echo ($coursedetail->course_batch) ? ' selected="selected"' : '';?>><?php echo $coursedetail->batch_name;?></option>
-                  @foreach ($batch as $val)
-                   <option value="{{$val->id}}">{{$val->batch_name}}->{{$val->start_time}} - {{$val->end_time}}</option>
-                  @endforeach
-                </select>             
-                </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-sm-2 col-lg-4">
-            <div class="form-group">
-            <label class="control-label">Payment Mode</label>
-               <select class="form-control " value="{{$coursedetail->payment_mode}}"  name="payment_mode" style="width: 100%;">
-                  <option selected="selected">Select Course</option>
-                  <option value="<?php echo $coursedetail->payment_mode;?>" <?php echo ($coursedetail->payment_mode) ? ' selected="selected"' : '';?>><?php echo $coursedetail->payment_mode;?></option>
-                  <option value="cod">COD</option>
-                  <option value="paypal">Paypal</option>
-                  <option value="netbanking">Netbanking</option>
-                </select>  
-            </div>
-         </div>
-         <div class="col-md-2 col-lg-4">
-            <div class="form-group">
-               <label class="control-label">Payment Description</label>
-               <input type="text" name="payment_desc" class="form-control"  value="{{$coursedetail->payment_desc}}"   title="FirstName should only contain letters" />
-            
-                </div>
-         </div>
-      </div>
-   </div>
+   
    <div class="tab">
       <h4 ><b>Personel Details</b></h4>
       <br>

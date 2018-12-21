@@ -37,17 +37,18 @@ h4{
         <strong> Admission Number</strong><br><br>
         <strong> Admission Date</strong><br><br>
         <strong> Date Of Joining</strong><br><br>
-
+       
+        @foreach($coursers as $value)
          <h4><b>Course Details</b></h4>
-
+         
          <strong> Course Name</strong><br><br>
          <strong> Course Price</strong><br><br>
          <strong> Discount</strong><br><br>
          <strong> Payment Mode</strong><br><br>
          <strong> Payment Description</strong><br><br>
          <strong> Course Batch</strong><br><br>
-        
-
+         @endforeach
+         <br><br>
         <h4><b>Personal Details</b></h4>
 
         <strong> Father Name</strong><br><br>
@@ -77,13 +78,18 @@ h4{
         {{ $studentrs->admission_date}}   <br><br>
         {{ $studentrs->doj}}   <br><br>
         <br> <br>
-        {{ $coursers->course_name}}   <br><br>
-        {{ $coursers->course_price}}   <br><br>
-        {{ $coursers->discount}}   <br><br>
-        {{ $coursers->payment_mode}}   <br><br>
-        {{ $coursers->payment_desc}}   <br><br>
-        {{ $coursers->batch_name}}->{{ $coursers->start_time}}-{{ $coursers->end_time}}  <br><br>
-         <br> <br>
+        
+        @foreach($coursers as $value)
+        <div >
+        {{ $value->coursename}}   <br><br>
+        {{ $value->course_price}}   <br><br>
+        {{ $value->discount}}   <br><br>
+        {{ $value->payment_mode}}   <br><br>
+        {{ $value->payment_desc}}   <br><br>
+        {{ $value->batch_name}}->{{ $value->start_time}}-{{ $value->end_time}}  <br><br>
+        </div>
+        @endforeach
+         <br><br><br><br><br><br> 
         {{ $studentrs->father_name}}   <br><br>
         {{ $studentrs->mother_name}}   <br><br>
         {{ $studentrs->occupation}}   <br><br>

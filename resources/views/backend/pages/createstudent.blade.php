@@ -127,7 +127,7 @@
                                     <div class="input-group-addon">
                                        <i class="fa fa-user"></i>
                                     </div>
-                                    <input type="text" name="firstname" class="form-control" >
+                                    <input type="text" name="name" class="form-control" >
                                  </div>
                                  <!-- /.input group -->
                               </div>

@@ -46,7 +46,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-laptop"></i>
                      </div>
-                     <select class="form-control select2 " id="category" name="category"  style="width: 100%;" >
+                     <select class="form-control  " id="category" name="category"  style="width: 100%;" >
                         <option selected="selected">Select </option>
                         <option value="<?php echo $coursers->category;?>" <?php echo ($coursers->category) ? ' selected="selected"' : '';?>><?php echo $coursers->category;?></option>
                         @foreach ($category as $val)
