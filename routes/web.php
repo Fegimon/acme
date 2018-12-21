@@ -143,19 +143,30 @@ Route::group(['prefix' => 'backend'], function(){
     Route::post('editstudentcourse','CourseController@editstudentcourse');
 
 
-
-
-
-
     Route::get('email','MainController@email');
     Route::post('postEmail','MainController@postEmail');
 
 
-    
+    Route::get('category','MainController@category');
+    Route::get('getcategory/{id}','MainController@getcategory');
 
+    Route::get('addpdfcategory','MainController@addpdfcategory');
+    Route::get('addpdf','MainController@addpdf');
+    Route::post('addpdf','CourseController@addpdf');
 
+    Route::post('addcat','CourseController@addcat');
+    Route::get('editcat/{id}','CourseController@editcat');
+    Route::get('getpdfcategory/{id}','CourseController@getpdfcategory');
+
+    Route::get('getpdfcategory/{id}','CourseController@getpdfcategory');
+    Route::get('getpdf/{id}','CourseController@getpdf');
+    Route::get('viewpdf/{id}','MainController@viewpdf');
 
 });
 
-Route::get('categoryselect/{id}','MainController@categoryselect');
 
+
+Route::any('ViewerJS/{all?}', function(){
+
+    return View::make('ViewerJS.index');
+});
