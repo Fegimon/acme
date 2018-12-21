@@ -17,6 +17,7 @@ class CreateAcmeEnquiryTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
+            $table->string('alternate_email');
             $table->string('phone');
             $table->string('alternate_phone');
             $table->string('course');
@@ -27,6 +28,10 @@ class CreateAcmeEnquiryTable extends Migration
             $table->string('comments');
             $table->string('otherref');
             $table->string('otherenq');
+            $table->string('student_name');
+            $table->string('student_class');
+            $table->string('student_syllabus');
+            $table->string('student_school');
             $table->integer('status');
             $table->timestamps();
         });
